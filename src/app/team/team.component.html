@@ -1,0 +1,36 @@
+<ng-container>
+    <div class="main">
+      <mat-card>
+        <mat-card-title>
+          <h2 class="title">
+            EAST CONFERENCE
+          </h2>
+        </mat-card-title>
+        <mat-card-content>
+          <span *ngFor="let team of eastTeams">
+            <a [routerLink]="['teamdetails', team.Key]">
+              <img class="logo" src="{{ team.WikipediaLogoUrl }}" alt="{{ team.City }}" title="{{ team.Key }}">
+            </a>
+          </span>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div>
+      <div class="main">
+        <mat-card class="westernCard">
+          <mat-card-title>
+            <h2 class="title">
+              WEST CONFERENCE
+            </h2>
+          </mat-card-title>
+          <mat-card-content>
+            <span *ngFor="let team of westTeams">
+              <a [routerLink]="['teamdetails', team.Key]">
+                <img class="logo" src="{{ team.WikipediaLogoUrl }}" alt="{{ team.City }}" title="{{ team.Key }}">
+              </a>
+            </span>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </ng-container>

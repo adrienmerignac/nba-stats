@@ -1,18 +1,27 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule, Routes } from '@angular/router';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
+import { NbaService } from './nba.service';
+import { TeamComponent } from './team/team.component';
+import { TeamdetailsComponent } from './teamdetails/teamdetails.component';
+import { PlayerComponent } from './player/player.component';
+import { DetailsComponent } from './player/details/details.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TeamComponent,
+    TeamdetailsComponent,
+    PlayerComponent,
+    DetailsComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    SharedModule,
   ],
-  providers: [],
+  providers: [NbaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
