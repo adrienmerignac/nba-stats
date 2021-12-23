@@ -8,7 +8,8 @@ import { TeamComponent } from './team/team.component';
 import { TeamdetailsComponent } from './teamdetails/teamdetails.component';
 import { PlayerComponent } from './player/player.component';
 import { DetailsComponent } from './player/details/details.component';
-
+import { PoidsPipe } from './@pipe/poids.pipe';
+import { TaillePipe } from './@pipe/taille.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,8 @@ import { DetailsComponent } from './player/details/details.component';
     TeamdetailsComponent,
     PlayerComponent,
     DetailsComponent,
+    PoidsPipe,
+    TaillePipe,
   ],
   imports: [
     SharedModule,

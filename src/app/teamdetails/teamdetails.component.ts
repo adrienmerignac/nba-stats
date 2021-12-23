@@ -23,7 +23,7 @@ export class TeamdetailsComponent implements OnInit {
       });
 
       this.nbaService.getPlayerByTeam(res['team']).subscribe(result => {
-        this.teamRostersPlayers = result;
+        this.teamRostersPlayers = result.sort((a, b) => a.LastName.localeCompare(b.LastName))
       });
 
       this.nbaService.getSeason().subscribe(result => {
