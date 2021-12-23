@@ -1,91 +1,41 @@
 <ng-container *ngIf="teamDetails">
     <div class="main">
-      <mat-card>
-        <mat-card-title>
-          <div class="title">
-            <h1 class="title">
-              {{ teamDetails.City }} {{ teamDetails.Name }}
-            </h1>
-          </div>
-        </mat-card-title>
+      <mat-card class="headerCardContainer" [ngStyle]="{'background-color': '#' + teamDetails.PrimaryColor}">
+        <div class="headerContainer">
+          <img src="{{ teamDetails.WikipediaLogoUrl }}" class="teamLogo"/>
+          <h1 class="title">
+            {{ teamDetails.City }} {{ teamDetails.Name }}
+          </h1>
+        </div>
+      </mat-card>
+      <mat-card class="playerContainer" [ngStyle]="{'background-color': '#' + teamDetails.PrimaryColor}" *ngFor="let teamRosterPlayer of teamRostersPlayers">
+        <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
         <mat-card-content>
-          <div>
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>N°</th>
-                  <th>Pos</th>
-                  <th>Height</th>
-                  <th>Weight</th>
-                  <th>Birth</th>
-                  <th>Exeprience</th>
-                  <th>College</th>
-                </tr>
-              </thead>
-              <tbody *ngFor="let teamRosterPlayer of teamRostersPlayers">
-                <tr>
-                  <td>
-                    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
-                      <div class="playerLink">
-                        {{ teamRosterPlayer.DraftKingsName }}
-                      </div>
-                    </a>
-                  </td>
-                  <td>
-                    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
-                      <div class="playerLink">
-                        {{ teamRosterPlayer.Jersey }}
-                      </div>
-                    </a>
-                  </td>
-                  <td>
-                    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
-                      <div class="playerLink">
-                        {{ teamRosterPlayer.Position }}
-                      </div>
-                    </a>
-                  </td>
-                  <td>
-                    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
-                      <div class="playerLink">
-                        {{ teamRosterPlayer.Height }}
-                      </div>
-                    </a>
-                  </td>
-                  <td>
-                    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
-                      <div class="playerLink">
-                        {{ teamRosterPlayer.Weight }}
-                      </div>
-                    </a>
-                  </td>
-                  <td>
-                    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
-                      <div class="playerLink">
-                        {{ teamRosterPlayer.BirthDate | date: 'dd/MM/yyyy' }}
-                      </div>
-                    </a>
-                  </td>
-                  <td>
-                    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
-                      <div class="playerLink">
-                        {{ teamRosterPlayer.Experience }}
-                      </div>
-                    </a>
-                  </td>
-                  <td>
-                    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
-                      <div class="playerLink">
-                        {{ teamRosterPlayer.College }}
-                      </div>
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="playerLogoContainer">
+            <img class="playerLogo" src="{{ teamRosterPlayer.PhotoUrl }}" />
           </div>
-        </mat-card-content>
+            <div class="playerInformationContainer">
+              <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
+                {{ teamRosterPlayer.DraftKingsName }}
+              </div>
+              <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
+                {{ teamRosterPlayer.Position }}
+              </div>
+              <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
+                {{ teamRosterPlayer.Height | taille | number:'1.0-2' }} M
+              </div>
+              <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
+                {{ teamRosterPlayer.Weight | poids | number:'1.0-2' }} KG
+              </div>
+              <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
+                {{ teamRosterPlayer.BirthDate | date: 'dd/MM/yyyy' }}
+              </div>
+              <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
+                N°{{ teamRosterPlayer.Jersey }}
+              </div>
+            </div>
+          </mat-card-content>
+        </a>
       </mat-card>
     </div>
   </ng-container>
