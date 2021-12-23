@@ -1,8 +1,8 @@
-import { PlayerByIdResponse, PlayerStats } from '../../@models/models';
+import { PlayerByIdResponse, PlayerStats } from './../../@models/models';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { NbaService } from '../../nba.service';
+import { NbaService } from './../../nba.service';
 
 @Component({
   selector: 'app-details',
@@ -18,14 +18,12 @@ export class DetailsComponent implements OnInit {
 
     this.route.params.subscribe(res => {
 
-      this.nbaService.getPlayerProfile(2021, res['playerid']).subscribe(data => {
+      this.nbaService.getPlayerProfile(2021, res['playerid']).subscribe((data: any) => {
         this.playerStats = data;
       });
 
-      this.nbaService.getPlayerPhotoById(res['playerid']).subscribe(data => {
+      this.nbaService.getPlayerPhotoById(res['playerid']).subscribe((data: any) => {
         this.playerId = data;
-        console.log(this.playerId);
-        console.log(data);
       });
     });
   }
