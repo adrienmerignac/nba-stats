@@ -1,0 +1,49 @@
+.main {
+    margin-top: 1em;
+}
+
+mat-card {
+    color: #FDFEFE;
+    margin-top: 0;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.mat-card-title {
+    font-size: 10px;
+    margin-bottom: 0;
+}
+
+.westernCard {
+    margin-bottom: 16px;
+}
+
+.title {
+    color: #FDFEFE;
+    text-align: center;
+    margin: 0;
+}
+
+a {
+    color: #FDFEFE;
+    text-decoration: none;
+    width: 100%;
+}
+
+.logo {
+    width: 85px;
+    height: 80px;
+    margin-left: 4em;
+    margin-top: 2rem;
+    transition: transform .3s;
+    display: inline-flex;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.2);
+    }
+}
+
+h1 {
+    margin: 0;
+    padding-left: .5em;
+}

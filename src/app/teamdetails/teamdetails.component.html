@@ -1,0 +1,91 @@
+<ng-container *ngIf="teamDetails">
+    <div class="main">
+      <mat-card>
+        <mat-card-title>
+          <div class="title">
+            <h1 class="title">
+              {{ teamDetails.City }} {{ teamDetails.Name }}
+            </h1>
+          </div>
+        </mat-card-title>
+        <mat-card-content>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>N°</th>
+                  <th>Pos</th>
+                  <th>Height</th>
+                  <th>Weight</th>
+                  <th>Birth</th>
+                  <th>Exeprience</th>
+                  <th>College</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let teamRosterPlayer of teamRostersPlayers">
+                <tr>
+                  <td>
+                    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
+                      <div class="playerLink">
+                        {{ teamRosterPlayer.DraftKingsName }}
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
+                      <div class="playerLink">
+                        {{ teamRosterPlayer.Jersey }}
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
+                      <div class="playerLink">
+                        {{ teamRosterPlayer.Position }}
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
+                      <div class="playerLink">
+                        {{ teamRosterPlayer.Height }}
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
+                      <div class="playerLink">
+                        {{ teamRosterPlayer.Weight }}
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
+                      <div class="playerLink">
+                        {{ teamRosterPlayer.BirthDate | date: 'dd/MM/yyyy' }}
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
+                      <div class="playerLink">
+                        {{ teamRosterPlayer.Experience }}
+                      </div>
+                    </a>
+                  </td>
+                  <td>
+                    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
+                      <div class="playerLink">
+                        {{ teamRosterPlayer.College }}
+                      </div>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>
