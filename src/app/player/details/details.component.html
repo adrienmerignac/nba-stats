@@ -1,0 +1,86 @@
+<ng-container *ngIf="playerStats && playerId">
+    <div class="main pt-0 pb-0 mt-0 mb-0">
+      <mat-card>
+        <mat-card-title>
+          <div class="title">
+            <img src="{{ playerId.PhotoUrl }}" alt="{{ playerStats.Name }}" title="{{ playerStats.Name }}">
+            <h1>
+              {{ playerStats.Name }}
+            </h1>
+          </div>
+        </mat-card-title>
+        <mat-card-content>
+          <h2>Per Game Statistics</h2>
+          <div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Season</th>
+                  <th>PointPG</th>
+                  <th>ReboundPG</th>
+                  <th>AassistPG</th>
+                  <th>MinutesPG</th>
+                  <th>TurnoverPG</th>
+                  <th>StealPG</th>
+                  <th>BlockPG</th>
+                  <th>FGP</th>
+                  <th>TPP</th>
+                  <th>FTP</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{ playerStats.Season }}</td>
+                  <td>{{ playerStats.Points / playerStats.Games | number:'1.0-2' }}</td>
+                  <td>{{ playerStats.Rebounds / playerStats.Games | number:'1.0-2' }}</td>
+                  <td>{{ playerStats.Assists / playerStats.Games | number:'1.0-2' }}</td>
+                  <td>{{ playerStats.Minutes / playerStats.Games | number:'1.0-2' }}</td>
+                  <td>{{ playerStats.Turnovers / playerStats.Games | number:'1.0-2' }}</td>
+                  <td>{{ playerStats.Steals / playerStats.Games | number:'1.0-2' }}</td>
+                  <td>{{ playerStats.BlockedShots / playerStats.Games | number:'1.0-2' }}</td>
+                  <td>{{ playerStats.FieldGoalsPercentage }}%</td>
+                  <td>{{ playerStats.ThreePointersPercentage }}%</td>
+                  <td>{{ playerStats.FreeThrowsPercentage }}%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h2>Total Statistics</h2>
+          <div class="container">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Season</th>
+                  <th>Points</th>
+                  <th>Assists</th>
+                  <th>Rebounds</th>
+                  <th>Blocks</th>
+                  <th>Steals</th>
+                  <th>Turnover</th>
+                  <th>offReb</th>
+                  <th>defReb</th>
+                  <th>GamesPlayed</th>
+                  <th>plusMinus</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{ playerStats.Season }}</td>
+                  <td>{{ playerStats.Points }}</td>
+                  <td>{{ playerStats.Assists }}</td>
+                  <td>{{ playerStats.Rebounds }}</td>
+                  <td>{{ playerStats.BlockedShots }}</td>
+                  <td>{{ playerStats.Steals }}</td>
+                  <td>{{ playerStats.Turnovers }}</td>
+                  <td>{{ playerStats.OffensiveRebounds }}</td>
+                  <td>{{ playerStats.DefensiveRebounds }}</td>
+                  <td>{{ playerStats.Games }}</td>
+                  <td>{{ playerStats.PlusMinus }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>

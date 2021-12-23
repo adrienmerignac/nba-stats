@@ -1,0 +1,79 @@
+.playercard {
+    margin-top: 1em;
+  }
+  
+  mat-card {
+    color: #FDFEFE;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
+  
+  .searchcontainer {
+    padding-bottom: 0;
+    padding-top: .3em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-top: 1em;
+  }
+  
+  h1 {
+    margin: 0;
+  }
+  
+  .example-full-width {
+    width: 100%;
+    font-size: 20px;
+  }
+  
+  ::ng-deep .mat-form-field-infix {
+    border: 0;
+    margin-top: .2em;
+  }
+  
+  ::ng-deep .mat-form-field-underline {
+    height: 2px !important;
+  }
+  
+  mat-list-item {
+    &:hover {
+        background-color: #c7c1c14b;
+    }
+    padding-top: 1.5em;
+    padding-bottom: 1em;
+    padding-left: 0;
+    border-bottom: 1px solid #FDFEFE;
+  }
+  
+  a {
+    color: #FDFEFE;
+    text-decoration: none;
+    width: 100%;
+  }
+  
+  .playerscontent {
+    font-size: 25px;
+  }
+  
+  .matlistitems {
+    display: inline-flex;
+  }
+  
+  .mat-list-base .mat-list-item {
+    display: block;
+    height: 84px;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    padding: 0;
+  }
+  
+  .playerimage {
+    height: 85px;
+    width: 70px;
+  }
+  
+  .matline {
+    margin-top: 1.1em;
+    margin-left: 1em;
+  }

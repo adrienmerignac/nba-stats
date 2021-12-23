@@ -1,0 +1,37 @@
+<ng-container *ngIf="filterPlayers && season">
+    <mat-card class="searchcontainer">
+      <mat-card-title>
+      </mat-card-title>
+      <mat-card-content>
+        <div class="searchplayer">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Search Players" (keyup)="searchPlayers()" [(ngModel)]="searchPlayer">
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    <div class="playercard">
+      <mat-card>
+        <mat-card-title>
+          <h1>NBA PLAYERS</h1>
+        </mat-card-title>
+        <mat-card-content>
+          <mat-list>
+            <mat-list-item *ngFor="let player of filterPlayers">
+              <a class="playerscontent" [routerLink]="['/players', season.Season, player.PlayerID]">
+                <div class="matlistitems">
+                  <img class="playerimage" src="{{ player.PhotoUrl }}"
+                    alt="{{ player.FirstName }} {{ player.LastName }}" title="{{ player.FirstName }} {{ player.LastName }}">
+                  <p class="matline">
+                    <span>
+                      {{ player.LastName }} {{ player.FirstName }}
+                    </span>
+                  </p>
+                </div>
+              </a>
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </ng-container>
