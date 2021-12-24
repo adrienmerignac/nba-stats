@@ -5,9 +5,10 @@ mat-card {
     padding-right: 0;
     padding-bottom: 0;
     padding-top: 0;
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 15%;
+    margin-right: 15%;
     margin-bottom: 20px;
+    box-shadow: 0 8px 8px 8px rgba(0,0,0,.2), 0 8px 8px 0 rgba(0,0,0,.14), 0 8px 8px 0 rgba(0,0,0,.12) !important;
 }
 
 mat-card:hover {
@@ -24,7 +25,7 @@ mat-card .playerLogoContainer .playerLogo {
     border-radius: 50%;
     overflow: hidden;
     background-color: #edeef0;
-    height: 80px;
+    height: 90px;
     width: 80px;
 }
 
@@ -35,6 +36,12 @@ mat-card-content {
 
 .main {
     width: 100%;
+}
+
+.logoTeamCardContainer {
+    width: 100%;
+    margin-left: 0;
+    border-radius: 0;
 }
 
 .headerContainer {

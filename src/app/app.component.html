@@ -5,25 +5,30 @@
   </span>
 </mat-toolbar>
 <mat-sidenav-container>
-  <mat-sidenav #snav mode="side">
-    <div class="firstLinkContainer">
-      <a routerLink="" class="link">
-        <span class="steam">
-          NBA Teams
-        </span>
-      </a>
-     </div> 
+  <mat-sidenav #snav mode="side" opened="true">
+    <div class="accountContainer">
+      <mat-icon class="userIcon">account_circle</mat-icon>
+      <h3>Adrien Merignac</h3>
+    </div>
+    <a routerLink="" class="link">
       <div class="linkContainer">
-        <a href="/players" class="link">
-          <span class="steam">
-            NBA Players
-          </span>
-        </a>
-     </div> 
+        <mat-icon class="icons">people</mat-icon>
+        <h4 class="linkName">
+          NBA Teams
+        </h4>
+      </div> 
+    </a>
+    <a href="/players" class="link">
+      <div class="linkContainer">
+        <mat-icon class="icons">person</mat-icon>
+        <h4 class="linkName">
+          NBA Players
+        </h4>
+      </div> 
+    </a>
   </mat-sidenav>
   <mat-sidenav-content>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
-  
-  
+

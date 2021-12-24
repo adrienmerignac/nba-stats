@@ -8,6 +8,16 @@
     text-decoration: none;
 }
 
+.accountContainer {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.userIcon {
+    font-size: 5em;
+    margin-right: 50px;
+}
+
 .button {
     background-color: #212121;
     color: white;
@@ -20,7 +30,7 @@
     margin-top: 2em;
     text-align: center;
     font-weight: bold;
-    font-size: medium;
+    font-size: large;
 }
 
 .linkContainer {
@@ -28,6 +38,12 @@
     font-weight: bold;
     font-size: medium;
     margin-top: 1em;
+    border-top: 2px solid grey;
+    border-bottom: 2px solid grey;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    padding-left: 15%;
 }
 
 .link {
@@ -36,7 +52,7 @@
 }
 
 mat-sidenav {
-    width: 10em;
+    width: 15em;
     background-color: #212121;
     border-top: 2px solid grey;
 
@@ -44,4 +60,21 @@ mat-sidenav {
 
 mat-sidenav-content {
     background-color: #FDFEFE;
+}
+
+p {
+    padding-top: 3px;
+}
+
+.mat-typography h4 {
+    margin: 0 0 0 !important;
+}
+
+.icons {
+    padding-right: 9px;
+}
+
+.linkName {
+    padding-left: 3px;
+    margin: 0;
 }
