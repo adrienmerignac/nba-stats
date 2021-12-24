@@ -1,13 +1,11 @@
 <ng-container *ngIf="teamDetails">
     <div class="main">
-      <mat-card class="headerCardContainer" [ngStyle]="{'background-color': '#' + teamDetails.PrimaryColor}">
         <div class="headerContainer">
           <img src="{{ teamDetails.WikipediaLogoUrl }}" class="teamLogo"/>
-          <h1 class="title">
+          <h1 class="title" [ngStyle]="{'color': '#' + teamDetails.PrimaryColor}">
             {{ teamDetails.City }} {{ teamDetails.Name }}
           </h1>
         </div>
-      </mat-card>
       <mat-card class="playerContainer" [ngStyle]="{'background-color': '#' + teamDetails.PrimaryColor}" *ngFor="let teamRosterPlayer of teamRostersPlayers">
         <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
         <mat-card-content>

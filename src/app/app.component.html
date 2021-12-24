@@ -1,19 +1,29 @@
-<div>
-  <mat-toolbar>
-          <span class="title">
-            <strong>NBA INSIDE</strong>
+<mat-toolbar>
+  <button class="button" mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+  <span class="title">
+    <strong>NBA STATS</strong>
+  </span>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #snav mode="side">
+    <div class="firstLinkContainer">
+      <a routerLink="" class="link">
+        <span class="steam">
+          NBA Teams
+        </span>
+      </a>
+     </div> 
+      <div class="linkContainer">
+        <a href="/players" class="link">
+          <span class="steam">
+            NBA Players
           </span>
-        <a routerLink="" class="link">
-            <span class="steam">
-              NBA Teams
-            </span>
-          </a>
-          <a href="/players" class="link">
-              <span class="steam">
-                NBA Players
-              </span>
-            </a>
-      </mat-toolbar>
-</div>
-
-<router-outlet></router-outlet>
+        </a>
+     </div> 
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+  
+  

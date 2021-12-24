@@ -10,6 +10,7 @@ import { PlayerComponent } from './player/player.component';
 import { DetailsComponent } from './player/details/details.component';
 import { PoidsPipe } from './@pipe/poids.pipe';
 import { TaillePipe } from './@pipe/taille.pipe';
+import { MaterialelevationDirective } from './@directive/materialelevation.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { TaillePipe } from './@pipe/taille.pipe';
     DetailsComponent,
     PoidsPipe,
     TaillePipe,
+    MaterialelevationDirective,
   ],
   imports: [
     SharedModule,

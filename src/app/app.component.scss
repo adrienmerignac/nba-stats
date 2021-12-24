@@ -8,8 +8,40 @@
     text-decoration: none;
 }
 
+.button {
+    background-color: #212121;
+    color: white;
+    border-color: #212121;
+    border-style: solid;
+    margin-right: 1em;
+}
+
+.firstLinkContainer {
+    margin-top: 2em;
+    text-align: center;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.linkContainer {
+    text-align: center;
+    font-weight: bold;
+    font-size: medium;
+    margin-top: 1em;
+}
+
 .link {
-    color: rgba(253, 254, 254, 0.548);
-    padding-left: 2em;
+    color: #FDFEFE;
     text-decoration: none;
+}
+
+mat-sidenav {
+    width: 10em;
+    background-color: #212121;
+    border-top: 2px solid grey;
+
+}
+
+mat-sidenav-content {
+    background-color: #FDFEFE;
 }
