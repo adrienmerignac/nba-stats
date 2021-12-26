@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
-
+import {NgChartsModule} from 'node_modules/ng2-charts'
 
 @NgModule({
 
@@ -18,7 +18,8 @@ import {MatMenuModule} from '@angular/material/menu';
         MatFormFieldModule,
         MatInputModule,
         MatIconModule,
-        MatMenuModule
+        MatMenuModule,
+        NgChartsModule
     ],
     exports: [
         MatToolbarModule,
@@ -28,7 +29,8 @@ import {MatMenuModule} from '@angular/material/menu';
         MatInputModule,
         MatSidenavModule,
         MatIconModule,
-        MatMenuModule
+        MatMenuModule,
+        NgChartsModule
     ],
   })
 export class MaterialModule { }
