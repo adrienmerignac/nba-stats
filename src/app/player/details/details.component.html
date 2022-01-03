@@ -1,14 +1,12 @@
 <ng-container *ngIf="playerStats && playerId">
     <div class="main pt-0 pb-0 mt-0 mb-0">
       <mat-card>
-        <mat-card-title>
-          <div class="title">
-            <img src="{{ playerId.PhotoUrl }}" alt="{{ playerStats.Name }}" title="{{ playerStats.Name }}">
+        <div class="title">
+            <img src="{{ playerId.PhotoUrl }}" class="playerLogo" alt="{{ playerStats.Name }}" title="{{ playerStats.Name }}">
             <h1>
               {{ playerStats.Name }}
             </h1>
           </div>
-        </mat-card-title>
         <mat-card-content>
           <h2>Per Game Statistics</h2>
             <canvas baseChart
@@ -18,40 +16,6 @@
               [type]="radarChartType">
             </canvas>
           <h2>Total Statistics</h2>
-          <!-- <div class="container">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Season</th>
-                  <th>Points</th>
-                  <th>Assists</th>
-                  <th>Rebounds</th>
-                  <th>Blocks</th>
-                  <th>Steals</th>
-                  <th>Turnover</th>
-                  <th>offReb</th>
-                  <th>defReb</th>
-                  <th>GamesPlayed</th>
-                  <th>plusMinus</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{{ playerStats.Season }}</td>
-                  <td>{{ playerStats.Points }}</td>
-                  <td>{{ playerStats.Assists }}</td>
-                  <td>{{ playerStats.Rebounds }}</td>
-                  <td>{{ playerStats.BlockedShots }}</td>
-                  <td>{{ playerStats.Steals }}</td>
-                  <td>{{ playerStats.Turnovers }}</td>
-                  <td>{{ playerStats.OffensiveRebounds }}</td>
-                  <td>{{ playerStats.DefensiveRebounds }}</td>
-                  <td>{{ playerStats.Games }}</td>
-                  <td>{{ playerStats.PlusMinus }}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div> -->
         </mat-card-content>
       </mat-card>
     </div>

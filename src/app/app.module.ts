@@ -11,6 +11,8 @@ import { DetailsComponent } from './player/details/details.component';
 import { PoidsPipe } from './@pipe/poids.pipe';
 import { TaillePipe } from './@pipe/taille.pipe';
 import { MaterialelevationDirective } from './@directive/materialelevation.directive';
+import { GameComponent } from './game/game/game.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,12 @@ import { MaterialelevationDirective } from './@directive/materialelevation.direc
     PoidsPipe,
     TaillePipe,
     MaterialelevationDirective,
+    GameComponent,
   ],
   imports: [
     SharedModule,
   ],
-  providers: [NbaService],
+  providers: [NbaService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

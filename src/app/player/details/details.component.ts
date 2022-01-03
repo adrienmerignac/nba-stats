@@ -23,9 +23,18 @@ export class DetailsComponent implements OnInit {
       r: {
         ticks: {
             stepSize: 10
+        },
+        angleLines: {
+          color: '#FFFFFF'
+        },
+        grid: {
+          color: '#FFFFFF'
+        },
+        pointLabels: {
+          color: '#FFFFFF'
         }
+      }
     }
-    }  
   };
   
   public radarChartLabels: String[] = ['PPG', 'APG', 'RPG', 'DRPG', 'ORPG', 'SPG', 'BPG'];

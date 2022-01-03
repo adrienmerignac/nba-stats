@@ -1,0 +1,21 @@
+<div class="owl-carousel owl-theme">
+    <mat-card *ngFor="" style= "width: fit-content;" class="results">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>titi</mat-card-title>
+            <mat-card-subtitle>Estrellas: toto</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-carousel [hideArrows]="false" [hideIndicators]="false" timings="200ms ease-in" [autoplay]="true">
+                <mat-carousel-slide *ngFor="" overlayColor="#ffffff" [hideOverlay]="false">
+                    <img [src]="" alt="">
+                </mat-carousel-slide>
+            </mat-carousel>
+            <mat-card-actions>
+            <button *ngIf="" mat-stroked-button color="primary" disabled>Alojamiento sin
+                capacidad!</button>
+                <button *ngIf="" mat-stroked-button color="primary">Reservar!</button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
+</div>
