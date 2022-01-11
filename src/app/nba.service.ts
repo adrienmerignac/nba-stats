@@ -1,20 +1,17 @@
 import { TeamsResponse, PlayerResponse, PlayerByTeamResponse, PlayerStats, Season, PlayerByIdResponse } from './@models/models';
-import { PlayerProfileResponse } from './@models/playerdetails';
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
-// import 'rxjs/add/operator/mergeMap';
-// import 'rxjs/add/operator/toArray';
-// import 'rxjs/add/operator/map';
+import { lastValueFrom, Observable } from 'rxjs';
+import { Game, GameInformations } from './@models/game';
 
-const headers = new HttpHeaders().append('header', 'value');
 const params = new HttpParams().append('key', '0baeab542b0e4914ac0dd7f6908af13b');
 
 @Injectable()
 export class NbaService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+   }
 
   // Liste de toutes les équipes Américaines -- team component
   public getAllTeams(): Observable<TeamsResponse[]> {
@@ -33,15 +30,11 @@ export class NbaService {
 
   // Liste des joueurs par équipe -- teamdetail component
   public getPlayerById(playerid: number): Observable<PlayerByIdResponse[]> {
-    console.log(this.http.get<PlayerByIdResponse[]>(`https://api.sportsdata.io/v3/nba/scores/json/Player/${playerid}`, {params}));
-
     return this.http.get<PlayerByIdResponse[]>(`https://api.sportsdata.io/v3/nba/scores/json/Player/${playerid}`, {params});
   }
 
   // Joueur -- playerdetail component
   public getPlayerPhotoById(playerid: number): Observable<PlayerByIdResponse> {
-    console.log(this.http.get<PlayerByIdResponse>(`https://api.sportsdata.io/v3/nba/scores/json/Player/${playerid}`, {params}));
-
     return this.http.get<PlayerByIdResponse>(`https://api.sportsdata.io/v3/nba/scores/json/Player/${playerid}`, {params});
   }
 
@@ -61,8 +54,7 @@ export class NbaService {
     return this.http.get<PlayerStats>(`https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByPlayer/${season}/${playerid}`, {params});
   }
 
-  // Bio d'un joueur -- player component
-  // public getPlayerBio(playerId: number): Observable<BioResponse> {
-  //   return this.http.get<BioResponse>(`/nba/json/bios/player_${playerId}.json`);
-  // }
+  public getMatchsOfTheDay(currentDateTime: string | null): Observable<GameInformations[]> {
+    return this.http.get<GameInformations[]>(`https://api.sportsdata.io/v3/nba/stats/json/BoxScores/${currentDateTime}`, {params});
+  }
 }

@@ -8,8 +8,73 @@
     text-decoration: none;
 }
 
+.accountContainer {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.userIcon {
+    font-size: 5em;
+    margin-right: 50px;
+}
+
+.button {
+    background-color: #212121;
+    color: white;
+    border-color: #212121;
+    border-style: solid;
+    margin-right: 1em;
+}
+
+.firstLinkContainer {
+    margin-top: 2em;
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+}
+
+.linkContainer {
+    text-align: center;
+    font-weight: bold;
+    font-size: medium;
+    margin-top: 1em;
+    border-top: 2px solid grey;
+    border-bottom: 2px solid grey;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    padding-left: 15%;
+}
+
 .link {
-    color: rgba(253, 254, 254, 0.548);
-    padding-left: 2em;
+    color: #FDFEFE;
     text-decoration: none;
+}
+
+mat-sidenav {
+    width: 15em;
+    background-color: #212121;
+    border-top: 2px solid grey;
+
+}
+
+mat-sidenav-content {
+    background-color: #FDFEFE;
+}
+
+p {
+    padding-top: 3px;
+}
+
+.mat-typography h4 {
+    margin: 0 0 0 !important;
+}
+
+.icons {
+    padding-right: 9px;
+}
+
+.linkName {
+    padding-left: 3px;
+    margin: 0;
 }

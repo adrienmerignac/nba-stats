@@ -1,9 +1,9 @@
 <ng-container *ngIf="teamDetails">
     <div class="main">
-      <mat-card class="headerCardContainer" [ngStyle]="{'background-color': '#' + teamDetails.PrimaryColor}">
+      <mat-card class="logoTeamCardContainer">
         <div class="headerContainer">
           <img src="{{ teamDetails.WikipediaLogoUrl }}" class="teamLogo"/>
-          <h1 class="title">
+          <h1 class="title" [ngStyle]="{'color': '#' + teamDetails.PrimaryColor}">
             {{ teamDetails.City }} {{ teamDetails.Name }}
           </h1>
         </div>

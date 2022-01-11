@@ -5,8 +5,9 @@
 mat-card {
     color: #FDFEFE;
     margin-top: 0;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 10%;
+    margin-right: 10%;
+    box-shadow: 0 8px 8px 8px rgba(0,0,0,.2), 0 8px 8px 0 rgba(0,0,0,.14), 0 8px 8px 0 rgba(0,0,0,.12) !important;
 }
 
 .mat-card-title {
@@ -16,6 +17,7 @@ mat-card {
 
 .westernCard {
     margin-bottom: 16px;
+    margin-top: 2em
 }
 
 .title {
@@ -33,7 +35,7 @@ a {
 .logo {
     width: 85px;
     height: 80px;
-    margin-left: 4em;
+    margin-left: 7em;
     margin-top: 2rem;
     transition: transform .3s;
     display: inline-flex;

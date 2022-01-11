@@ -5,11 +5,16 @@ import { TeamComponent } from './team/team.component';
 import { TeamdetailsComponent } from './teamdetails/teamdetails.component';
 import { DetailsComponent } from './player/details/details.component';
 import { PlayerComponent } from './player/player.component';
+import { GameComponent } from './game/game/game.component';
 
 
 const routes: Routes = [
   {
     path: '',
+    component: GameComponent
+  },
+  {
+    path: 'teams',
     component: TeamComponent
   },
   {

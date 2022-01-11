@@ -1,0 +1,23 @@
+.container {
+    .row {
+        border: 1px solid var(--surface-d);
+        // border-radius: 3px;
+        margin: .3rem;
+        // text-align: center;
+        padding: 2rem 0;
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+p {
+    color: black;
+}
+
+h5 {
+    margin-top: 20px;
+    color: black;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+}
