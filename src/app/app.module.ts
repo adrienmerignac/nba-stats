@@ -21,10 +21,10 @@ import { DatePipe } from '@angular/common';
     TeamdetailsComponent,
     PlayerComponent,
     DetailsComponent,
+    GameComponent,
     PoidsPipe,
     TaillePipe,
     MaterialelevationDirective,
-    GameComponent,
   ],
   imports: [
     SharedModule,

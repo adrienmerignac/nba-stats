@@ -1,21 +1,19 @@
-<div class="owl-carousel owl-theme">
-    <mat-card *ngFor="" style= "width: fit-content;" class="results">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>titi</mat-card-title>
-            <mat-card-subtitle>Estrellas: toto</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-            <mat-carousel [hideArrows]="false" [hideIndicators]="false" timings="200ms ease-in" [autoplay]="true">
-                <mat-carousel-slide *ngFor="" overlayColor="#ffffff" [hideOverlay]="false">
-                    <img [src]="" alt="">
-                </mat-carousel-slide>
-            </mat-carousel>
-            <mat-card-actions>
-            <button *ngIf="" mat-stroked-button color="primary" disabled>Alojamiento sin
-                capacidad!</button>
-                <button *ngIf="" mat-stroked-button color="primary">Reservar!</button>
-            </mat-card-actions>
-        </mat-card-content>
-    </mat-card>
-</div>
+<p-carousel [value]="gameList" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+    <ng-template pTemplate="header">
+        <h5>Result of the night</h5>
+    </ng-template>
+    <ng-template ngFor let-game [ngForOf]="gameList" pTemplate="item">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-auto">
+                    <p>{{ game.Game.HomeTeam}}</p>
+                    <p>{{ game.Game.HomeTeamScore}}</p>
+                </div>
+                <div class="col-md-auto">
+                    <p>{{ game.Game.AwayTeam}}</p>
+                    <p>{{ game.Game.AwayTeamScore}}</p>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>

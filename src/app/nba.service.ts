@@ -2,8 +2,8 @@ import { TeamsResponse, PlayerResponse, PlayerByTeamResponse, PlayerStats, Seaso
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Game } from './@models/game';
+import { lastValueFrom, Observable } from 'rxjs';
+import { Game, GameInformations } from './@models/game';
 
 const params = new HttpParams().append('key', '0baeab542b0e4914ac0dd7f6908af13b');
 
@@ -54,8 +54,7 @@ export class NbaService {
     return this.http.get<PlayerStats>(`https://api.sportsdata.io/v3/nba/stats/json/PlayerSeasonStatsByPlayer/${season}/${playerid}`, {params});
   }
 
-  // Bio Match du jour
-  public getMatchsOfTheDay(currentDateTime: string | null): Observable<Game> {
-    return this.http.get<Game>(`https://api.sportsdata.io/v3/nba/stats/json/BoxScores/${currentDateTime}`, {params});
+  public getMatchsOfTheDay(currentDateTime: string | null): Observable<GameInformations[]> {
+    return this.http.get<GameInformations[]>(`https://api.sportsdata.io/v3/nba/stats/json/BoxScores/${currentDateTime}`, {params});
   }
 }

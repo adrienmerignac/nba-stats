@@ -217,7 +217,7 @@ export interface PlayerGame {
     LineupStatus: string;
 }
 
-export interface RootObject {
+export interface GameInformations {
     Game: Game;
     Quarters: Quarter2[];
     TeamGames: TeamGame[];

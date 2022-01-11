@@ -6,7 +6,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MaterialModule } from './material.module';
 import { AppRoutingModule } from '../app-routing.module';
-
+import { AccordionModule } from 'primeng/accordion';
+import { CarouselModule } from 'primeng/carousel';
+import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   imports: [
@@ -16,7 +19,11 @@ import { AppRoutingModule } from '../app-routing.module';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AccordionModule,
+    CarouselModule,
+    ButtonModule,
+    ToastModule
   ],
   exports: [
     MaterialModule,
@@ -25,7 +32,11 @@ import { AppRoutingModule } from '../app-routing.module';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AccordionModule,
+    CarouselModule,
+    ButtonModule,
+    ToastModule
   ],
   declarations: []
 })

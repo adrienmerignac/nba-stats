@@ -14,10 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
 import { NgChartsModule } from 'node_modules/ng2-charts';
-import { OwlModule } from 'ngx-owl-carousel';
-
 @NgModule({
 
     imports: [
@@ -35,7 +32,6 @@ import { OwlModule } from 'ngx-owl-carousel';
         BrowserModule,
         BrowserAnimationsModule,
         FlexLayoutModule,
-        OwlModule
     ],
     exports: [
         MatToolbarModule,
@@ -53,7 +49,6 @@ import { OwlModule } from 'ngx-owl-carousel';
         BrowserModule,
         BrowserAnimationsModule,
         FlexLayoutModule,
-        OwlModule
     ],
   })
 export class MaterialModule { }
