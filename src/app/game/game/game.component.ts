@@ -14,9 +14,12 @@ export class GameComponent implements OnInit {
 
   gameList!: GameInformations[];
   teamLogo!: TeamsResponse[];
-  homeTeam!: GameInformations[];
-  awayTeam!: GameInformations[];
+  homeTeam!: any[];
+  homeLogo!: any[];
+  awayTeam!: any[];
+  awayLogo!: any[];
   teams!: TeamsResponse;
+
 
   responsiveOptions;
 
@@ -43,19 +46,56 @@ export class GameComponent implements OnInit {
    
 
   ngOnInit(): void {
-    var yesterday = new Date(new Date().setDate(new Date().getDate()-1));
+    let yesterday = new Date(new Date().setDate(new Date().getDate()-1));
     let currentDateTime = this.datePipe.transform(yesterday, 'yyyy-MMM-dd');
-    
-    this.nbaService.getAllTeams().subscribe(res => {
-      this.teamLogo = res;
-    });
 
     this.nbaService.getMatchsOfTheDay(currentDateTime).subscribe(data => {
-      console.log(data);
-      this.homeTeam = data.filter(x => x.TeamGames.filter(y => y.HomeOrAway === "HOME"));
-      this.gameList = data;
-      console.log(this.homeTeam);
+      this.gameList = data
+      .sort((a,b) => (a.Game.HomeTeam > b.Game.HomeTeam) ? 1 : ((b.Game.HomeTeam > a.Game.HomeTeam) ? -1 : 0))
+
+    this.nbaService.getAllTeams().subscribe(allTeam => {
+      this.teamLogo = allTeam;
+
+      const homeKey = this.gameList
+      .filter(logo => logo.Game.HomeTeam)
+      .map(logo => logo.Game.HomeTeam)
+   
+      const awayKey = this.gameList
+      .filter(logo => logo.Game.AwayTeam)
+      .map(logo => logo.Game.AwayTeam)
+
+      this.homeTeam = allTeam
+      .filter(team => homeKey.includes(team.Key))
+      .map(team => [
+        team.Key,
+        team.WikipediaLogoUrl
+      ])
+      .sort()
+
+      this.awayTeam = allTeam
+      .filter(team => awayKey.includes(team.Key))
+      .map(team => [
+        team.Key,
+        team.WikipediaLogoUrl
+      ])
+     
+
+      this.homeLogo = this.homeTeam.map(element => {
+        return element[1];
+      });
+
+      this.awayLogo = this.awayTeam.map(element => {
+        return element[1];
+      });
+  
+      this.gameList.map((x, index) => {
+        x.Game.HomeTeamLogo = this.homeLogo[index];
+        x.Game.AwayTeamLogo = this.awayLogo[index];
+      })
+      console.log(this.gameList);
     });
+
+  });
 
     
   }
