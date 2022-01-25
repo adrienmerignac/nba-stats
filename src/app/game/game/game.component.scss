@@ -15,9 +15,32 @@ p {
 }
 
 h5 {
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 28px;
     color: black;
     text-align: center;
     font-size: xx-large;
+    font-weight: bold;
+}
+
+.logo {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.homeTeamContainer {
+    text-align: center;
+}
+
+.awayTeamContainer {
+    text-align: center;
+}
+
+.teamName {
+    font-style: italic;
+}
+
+.score {
     font-weight: bold;
 }

@@ -1,19 +1,19 @@
-<p-carousel [value]="gameList" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="550000000" [responsiveOptions]="responsiveOptions">
+<p-carousel [value]="gameList" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
     <ng-template pTemplate="header">
         <h5>Result of the night</h5>
     </ng-template>
     <ng-template ngFor let-game [ngForOf]="gameList" pTemplate="item">
         <div class="container">
             <div class="row">
-                <div class="col-md-auto">
-                    <img src="{{ game.Game.HomeTeamLogo }}" />
-                    <p>{{ game.Game.HomeTeam}}</p>
-                    <p>{{ game.Game.HomeTeamScore}}</p>
+                <div class="col-md-auto homeTeamContainer">
+                    <img class="logo" src="{{ game.Game.HomeTeamLogo }}" />
+                    <p class="teamName">{{ game.Game.HomeTeam}}</p>
+                    <p class="score">{{ game.Game.HomeTeamScore}}</p>
                 </div>
-                <div class="col-md-auto">
-                    <img src="{{ game.Game.AwayTeamLogo }}" />
-                    <p>{{ game.Game.AwayTeam}}</p>
-                    <p>{{ game.Game.AwayTeamScore}}</p>
+                <div class="col-md-auto awayTeamContainer">
+                    <img class="logo" src="{{ game.Game.AwayTeamLogo }}" />
+                    <p class="teamName">{{ game.Game.AwayTeam}}</p>
+                    <p class="score">{{ game.Game.AwayTeamScore}}</p>
                 </div>
             </div>
         </div>
