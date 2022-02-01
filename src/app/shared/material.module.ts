@@ -9,10 +9,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import {MatTableModule} from '@angular/material/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgChartsModule } from 'node_modules/ng2-charts';
 @NgModule({
@@ -32,6 +33,8 @@ import { NgChartsModule } from 'node_modules/ng2-charts';
         BrowserModule,
         BrowserAnimationsModule,
         FlexLayoutModule,
+        MatButtonToggleModule,
+        MatTableModule
     ],
     exports: [
         MatToolbarModule,
@@ -49,6 +52,8 @@ import { NgChartsModule } from 'node_modules/ng2-charts';
         BrowserModule,
         BrowserAnimationsModule,
         FlexLayoutModule,
+        MatButtonToggleModule,
+        MatTableModule
     ],
   })
 export class MaterialModule { }
