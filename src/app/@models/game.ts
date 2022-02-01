@@ -15,7 +15,11 @@ export interface Game {
     Day: Date;
     DateTime: Date;
     AwayTeam: string;
+    AwayTeamLogo: any;
     HomeTeam: string;
+    HomeTeamLogo: any;
+    IsTheWinner: any;
+    IsHomeTeam: any;
     AwayTeamID: number;
     HomeTeamID: number;
     StadiumID: number;

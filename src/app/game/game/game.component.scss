@@ -1,12 +1,15 @@
 .container {
     .row {
         border: 1px solid var(--surface-d);
-        // border-radius: 3px;
-        margin: .3rem;
-        // text-align: center;
-        padding: 2rem 0;
+        margin: .3rem; 
+    }
+}
+
+.container {
+    .row .rowContainer {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
+        padding: 1rem 0;
     }
 }
 
@@ -15,9 +18,49 @@ p {
 }
 
 h5 {
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 28px;
     color: black;
     text-align: center;
     font-size: xx-large;
     font-weight: bold;
 }
+
+.logo {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.homeTeamContainer {
+    text-align: center;
+}
+
+.awayTeamContainer {
+    text-align: center;
+}
+
+.winnerTeam {
+    padding-top: 6em;
+    display: flex;
+    color: black;
+}
+
+.teamName {
+    font-style: italic;
+}
+
+.score {
+    font-weight: bold;
+}
+
+.buttonContainer {
+    width: 100%;
+}
+
+  button {
+      border: 1px rgba(0,0,0,0) solid !important;
+      width: 50%;
+  }
+  
+  

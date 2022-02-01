@@ -1,17 +1,35 @@
-<p-carousel [value]="gameList" styleClass="custom-carousel" [numVisible]="3" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+<p-carousel [value]="gameList" styleClass="custom-carousel" [numVisible]="3" [numScroll]="2" [circular]="true" [autoplayInterval]="5000" [responsiveOptions]="responsiveOptions">
     <ng-template pTemplate="header">
         <h5>Result of the night</h5>
     </ng-template>
     <ng-template ngFor let-game [ngForOf]="gameList" pTemplate="item">
         <div class="container">
             <div class="row">
-                <div class="col-md-auto">
-                    <p>{{ game.Game.HomeTeam}}</p>
-                    <p>{{ game.Game.HomeTeamScore}}</p>
+                <div class="rowContainer">
+                    <div class="col-md-auto awayTeamContainer">
+                        <img class="logo" src="{{ game.Game.AwayTeamLogo }}" />
+                        <p class="teamName">{{ game.Game.AwayTeam}}</p>
+                        <p class="score">{{ game.Game.AwayTeamScore}}</p>
+                    </div>
+                    <div class="winnerTeam" *ngIf="game.Game.IsTheWinner === 'AWAY'">
+                        <mat-icon class="winnerArrow">arrow_left</mat-icon>
+                        <p>Finished</p>
+                    </div>
+                    <div class="winnerTeam" *ngIf="game.Game.IsTheWinner === 'HOME'">
+                        <p>Finished</p>
+                        <mat-icon class="winnerArrow">arrow_right</mat-icon>
+                    </div>
+                    <div class="col-md-auto homeTeamContainer">
+                        <img class="logo" src="{{ game.Game.HomeTeamLogo }}" />
+                        <p class="teamName">{{ game.Game.HomeTeam}}</p>
+                        <p class="score">{{ game.Game.HomeTeamScore}}</p>
+                    </div>
                 </div>
-                <div class="col-md-auto">
-                    <p>{{ game.Game.AwayTeam}}</p>
-                    <p>{{ game.Game.AwayTeamScore}}</p>
+                <div>
+                    <div class="example-button-row">
+                        <button mat-stroked-button color="accent">Away</button>
+                        <button mat-stroked-button color="accent">Home</button>
+                      </div>
                 </div>
             </div>
         </div>
