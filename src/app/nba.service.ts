@@ -2,7 +2,7 @@ import { TeamsResponse, PlayerResponse, PlayerByTeamResponse, PlayerStats, Seaso
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { lastValueFrom, Observable } from 'rxjs';
+import { forkJoin, lastValueFrom, Observable } from 'rxjs';
 import { Game, GameInformations } from './@models/game';
 
 const params = new HttpParams().append('key', '0baeab542b0e4914ac0dd7f6908af13b');
@@ -57,4 +57,11 @@ export class NbaService {
   public getMatchsOfTheDay(currentDateTime: string | null): Observable<GameInformations[]> {
     return this.http.get<GameInformations[]>(`https://api.sportsdata.io/v3/nba/stats/json/BoxScores/${currentDateTime}`, {params});
   }
+
+  // public requestDataFromMultipleSources(currentDateTime: string | null): Observable<any[]> {
+  //   let response1 = this.http.get<GameInformations[]>(`https://api.sportsdata.io/v3/nba/stats/json/BoxScores/${currentDateTime}`, {params});
+  //   let response2 = this.http.get<TeamsResponse[]>(`https://api.sportsdata.io/v3/nba/scores/json/AllTeams`, { params });
+  //   // Observable.forkJoin (RxJS 5) changes to just forkJoin() in RxJS 6
+  //   return forkJoin([response1, response2]);
+  // }
 }
