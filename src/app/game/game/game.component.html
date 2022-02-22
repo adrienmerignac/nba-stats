@@ -7,22 +7,22 @@
             <div class="row">
                 <div class="rowContainer">
                     <div class="col-md-auto awayTeamContainer">
-                        <img class="logo" src="{{ game.Game.AwayTeamLogo }}" />
-                        <p class="teamName">{{ game.Game.AwayTeam}}</p>
-                        <p class="score">{{ game.Game.AwayTeamScore}}</p>
+                        <img class="logo" src="{{ game.otherAwayGameInfos }}" />
+                        <p class="teamName">{{ game.GameInformations.Game.AwayTeam}}</p>
+                        <p class="score">{{ game.GameInformations.Game.AwayTeamScore}}</p>
                     </div>
-                    <div class="winnerTeam" *ngIf="game.Game.IsTheWinner === 'AWAY'">
+                    <div class="winnerTeam" *ngIf="game.GameInformations.Game.AwayTeamScore > game.GameInformations.Game.HomeTeamScore">
                         <mat-icon class="winnerArrow">arrow_left</mat-icon>
                         <p>Finished</p>
                     </div>
-                    <div class="winnerTeam" *ngIf="game.Game.IsTheWinner === 'HOME'">
+                    <div class="winnerTeam" *ngIf="game.GameInformations.Game.AwayTeamScore < game.GameInformations.Game.HomeTeamScore">
                         <p>Finished</p>
                         <mat-icon class="winnerArrow">arrow_right</mat-icon>
                     </div>
                     <div class="col-md-auto homeTeamContainer">
-                        <img class="logo" src="{{ game.Game.HomeTeamLogo }}" />
-                        <p class="teamName">{{ game.Game.HomeTeam}}</p>
-                        <p class="score">{{ game.Game.HomeTeamScore}}</p>
+                        <img class="logo" src="{{ game.otherHomeGameInfos }}" />
+                        <p class="teamName">{{ game.GameInformations.Game.HomeTeam}}</p>
+                        <p class="score">{{ game.GameInformations.Game.HomeTeamScore}}</p>
                     </div>
                 </div>
                 <div>
