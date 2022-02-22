@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FullInformation, GameInformations } from 'src/app/@models/game';
+import { FullInformation } from 'src/app/@models/game';
 import { NbaService } from 'src/app/nba.service';
 import { TeamsResponse } from 'src/app/@models/models';
 import { forkJoin, map } from 'rxjs';
@@ -13,6 +13,7 @@ import { forkJoin, map } from 'rxjs';
 export class GameComponent implements OnInit {
   gameList!: FullInformation[];
   teamLogo!: TeamsResponse[];
+  loading: boolean = true;
   responsiveOptions;
 
   constructor(private nbaService: NbaService, private datePipe: DatePipe) {
@@ -36,9 +37,8 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
+    let yesterday = new Date(new Date().setDate(new Date().getDate() - 5));
     let currentDateTime = this.datePipe.transform(yesterday, 'yyyy-MMM-dd');
-
     forkJoin({
       requestOne: this.nbaService.getMatchsOfTheDay(currentDateTime),
       requestTwo: this.nbaService.getAllTeams(),

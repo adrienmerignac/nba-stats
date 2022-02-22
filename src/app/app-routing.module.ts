@@ -18,7 +18,7 @@ const routes: Routes = [
     component: TeamComponent
   },
   {
-    path: 'teamdetails/:team',
+    path: 'teams/teamdetails/:team',
     component: TeamdetailsComponent
   },
   {

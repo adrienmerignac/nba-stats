@@ -1,3 +1,7 @@
+.superContainer {
+    height: 1024px;
+}
+
 .container {
     .row {
         border: 1px solid var(--surface-d);
@@ -18,7 +22,7 @@ p {
 }
 
 h5 {
-    margin-top: 30px;
+    margin-top: 2rem;
     margin-bottom: 28px;
     color: black;
     text-align: center;
@@ -58,9 +62,32 @@ h5 {
     width: 100%;
 }
 
-  button {
-      border: 1px rgba(0,0,0,0) solid !important;
-      width: 50%;
-  }
+button {
+    border: 1px rgba(0,0,0,0) solid !important;
+    width: 50%;
+}
   
-  
+.noGameMessage {
+    text-align: center;
+    font-size: medium;
+    font-style: italic;
+    color: lightgray;
+    margin-top: 5rem;
+}
+
+.noGameContainer  {
+    margin-top: 3rem;
+    height: 1024px;
+}
+
+.noGameMessageTwo {
+    text-align: center;
+    font-size: medium;
+    font-style: italic;
+    color: lightgray;
+}
+
+.noGameButton {
+    text-align: center;
+    margin-top: 2rem;
+}
