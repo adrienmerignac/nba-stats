@@ -5,7 +5,7 @@
       <mat-card-content>
         <div class="searchplayer">
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Search Players" (keyup)="searchPlayers()" [(ngModel)]="searchPlayer">
+            <input matInput placeholder="Search Players" (keyup)="searchPlayers($event)" [(ngModel)]="searchPlayer">
           </mat-form-field>
         </div>
       </mat-card-content>
@@ -17,11 +17,11 @@
         </mat-card-title>
         <mat-card-content>
           <mat-list>
-            <mat-list-item *ngFor="let player of filterPlayers">
+            <mat-list-item *ngFor="let player of pageSlice">
               <a class="playerscontent" [routerLink]="['/players', season.Season, player.PlayerID]">
                 <div class="matlistitems">
                   <img class="playerimage" src="{{ player.PhotoUrl }}"
-                    alt="{{ player.FirstName }} {{ player.LastName }}" title="{{ player.FirstName }} {{ player.LastName }}">
+                  alt="{{ player.FirstName }} {{ player.LastName }}" title="{{ player.FirstName }} {{ player.LastName }}">
                   <p class="matline">
                     <span>
                       {{ player.LastName }} {{ player.FirstName }}
@@ -31,6 +31,9 @@
               </a>
             </mat-list-item>
           </mat-list>
+          <mat-paginator [length]="pageLength"
+          [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="OnPageChange($event)">
+          </mat-paginator>
         </mat-card-content>
       </mat-card>
     </div>

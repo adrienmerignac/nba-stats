@@ -13,6 +13,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatCarouselModule } from '@ngmodule/material-carousel';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -36,7 +37,8 @@ import { NgChartsModule } from 'node_modules/ng2-charts';
         FlexLayoutModule,
         MatButtonToggleModule,
         MatTableModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        MatPaginatorModule
     ],
     exports: [
         MatToolbarModule,
@@ -56,7 +58,8 @@ import { NgChartsModule } from 'node_modules/ng2-charts';
         FlexLayoutModule,
         MatButtonToggleModule,
         MatTableModule,
-        MatProgressSpinnerModule
+        MatProgressSpinnerModule,
+        MatPaginatorModule
     ],
   })
 export class MaterialModule { }
