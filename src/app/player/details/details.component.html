@@ -2,6 +2,7 @@
     <div class="main pt-0 pb-0 mt-0 mb-0">
       <mat-card>
         <div class="title">
+            <div class="playerImageCircle"></div>
             <img src="{{ playerId.PhotoUrl }}" class="playerLogo" alt="{{ playerStats.Name }}" title="{{ playerStats.Name }}">
             <h1>
               {{ playerStats.Name }}
@@ -15,7 +16,6 @@
               [labels]="radarChartLabels"
               [type]="radarChartType">
             </canvas>
-          <h2>Total Statistics</h2>
         </mat-card-content>
       </mat-card>
     </div>

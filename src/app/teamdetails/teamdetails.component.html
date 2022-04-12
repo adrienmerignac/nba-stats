@@ -1,41 +1,41 @@
 <ng-container *ngIf="teamDetails">
-    <div class="main">
-      <mat-card class="logoTeamCardContainer">
-        <div class="headerContainer">
-          <img src="{{ teamDetails.WikipediaLogoUrl }}" class="teamLogo"/>
-          <h1 class="title" [ngStyle]="{'color': '#' + teamDetails.PrimaryColor}">
-            {{ teamDetails.City }} {{ teamDetails.Name }}
-          </h1>
-        </div>
-      </mat-card>
-      <mat-card class="playerContainer" [ngStyle]="{'background-color': '#' + teamDetails.PrimaryColor}" *ngFor="let teamRosterPlayer of teamRostersPlayers">
-        <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
-        <mat-card-content>
-          <div class="playerLogoContainer">
-            <img class="playerLogo" src="{{ teamRosterPlayer.PhotoUrl }}" />
-          </div>
-            <div class="playerInformationContainer">
-              <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
-                {{ teamRosterPlayer.DraftKingsName }}
-              </div>
-              <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
-                {{ teamRosterPlayer.Position }}
-              </div>
-              <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
-                {{ teamRosterPlayer.Height | taille | number:'1.0-2' }} M
-              </div>
-              <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
-                {{ teamRosterPlayer.Weight | poids | number:'1.0-2' }} KG
-              </div>
-              <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
-                {{ teamRosterPlayer.BirthDate | date: 'dd/MM/yyyy' }}
-              </div>
-              <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
-                N°{{ teamRosterPlayer.Jersey }}
-              </div>
-            </div>
-          </mat-card-content>
-        </a>
-      </mat-card>
+  <div class="main">
+    <div class="headerContainer">
+      <img src="{{ teamDetails.WikipediaLogoUrl }}" class="teamLogo" />
+      <h1 class="title" [ngStyle]="{'color': '#' + teamDetails.PrimaryColor}">
+        {{ teamDetails.City }} {{ teamDetails.Name }}
+      </h1>
     </div>
-  </ng-container>
+    <mat-card class="playerContainer" [ngStyle]="{'background-color': '#' + teamDetails.PrimaryColor}"
+    *ngFor="let teamRosterPlayer of teamRostersPlayers">
+    <a [routerLink]="['/players', season?.Season, teamRosterPlayer.PlayerID]">
+      <mat-card-content>
+        <div class="playerImageCircle"></div>
+        <div class="playerLogoContainer">
+          <img class="playerLogo" src="{{ teamRosterPlayer.PhotoUrl }}" />
+        </div>
+        <div class="playerInformationContainer">
+          <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
+            {{ teamRosterPlayer.DraftKingsName }}
+          </div>
+          <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
+            {{ teamRosterPlayer.Position }}
+          </div>
+          <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
+            {{ teamRosterPlayer.Height | taille | number:'1.0-2' }} M
+          </div>
+          <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
+            {{ teamRosterPlayer.Weight | poids | number:'1.0-2' }} KG
+          </div>
+          <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
+            {{ teamRosterPlayer.BirthDate | date: 'dd/MM/yyyy' }}
+          </div>
+          <div class="playerInformations" [ngStyle]="{'color': '#' + teamDetails.SecondaryColor}">
+            N°{{ teamRosterPlayer.Jersey }}
+          </div>
+        </div>
+      </mat-card-content>
+    </a>
+  </mat-card>
+</div>
+</ng-container>

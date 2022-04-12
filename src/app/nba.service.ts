@@ -5,6 +5,7 @@ import {
   PlayerStats,
   Season,
   PlayerByIdResponse,
+  CurrentState,
 } from './@models/models';
 import { Injectable } from '@angular/core';
 
@@ -94,6 +95,15 @@ export class NbaService {
   ): Observable<GameInformations[]> {
     return this.http.get<GameInformations[]>(
       `https://api.sportsdata.io/v3/nba/stats/json/BoxScores/${currentDateTime}`,
+      { params }
+    );
+  }
+
+  public getCurrentState(
+    currentDateTime: string | null
+  ): Observable<CurrentState[]> {
+    return this.http.get<CurrentState[]>(
+      `https://api.sportsdata.io/v3/nba/scores/json/Standings/${currentDateTime}`,
       { params }
     );
   }

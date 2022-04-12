@@ -1,6 +1,6 @@
-.superContainer {
-    height: 1024px;
-}
+// .superContainer {
+//     height: 1024px;
+// }
 
 .container {
     .row {
@@ -90,4 +90,75 @@ button {
 .noGameButton {
     text-align: center;
     margin-top: 2rem;
+}
+
+.mat-table {
+    width: -webkit-fill-available;
+    background-color: white;
+    margin: 1em 2em 2em 2em;
+}
+
+.mat-header-cell {
+    color: #0000008a;
+    background-color: lightgrey;
+    text-align: center;
+}
+
+.mat-cell {
+    color: black;
+    text-align: center;
+    width: 10%;
+}
+
+td.mat-cell {
+    border-bottom-color: #0000001f;
+}
+
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type {
+    padding: 0;
+}
+
+.toggleContainer {
+    text-align: center;
+    color: black;
+}
+
+.toggleSecondaryContainer {
+    display: inline-flex;
+}
+
+.westerConference {
+    padding: 1px 3px 0 0;
+}
+
+::ng-deep .mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-thumb {
+    background-color: #3f51b5;
+}
+
+::ng-deep .mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-bar {
+    background-color: rgba(63,81,181,.54);
+}
+
+::ng-deep .mat-slide-toggle-thumb {
+    background-color: #c50c0c;
+}
+
+::ng-deep .mat-slide-toggle-bar {
+    background-color: rgb(255 0 0 / 50%);
+}
+
+.easternConferenceHeader {
+    background-color: #3f51b5;
+    color: white;
+    font-weight: 500;
+}
+
+.westernConferenceHeader {
+    background-color: #c50c0c;
+    color: white;
+    font-weight: 500;
+}
+
+.rankBold {
+    font-weight: bold;
 }

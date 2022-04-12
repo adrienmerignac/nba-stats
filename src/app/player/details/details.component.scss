@@ -29,6 +29,15 @@ mat-card {
     margin-top: 16px;
 }
 
+.playerImageCircle {
+    border-radius: 50%;
+    width: 85px;
+    height: 85px;
+    position: absolute;
+    background: #fdfefe;
+    margin-top: 2.5em;
+  }
+
 .mat-card>:first-child {
     margin-top: -39px;
 }
@@ -38,13 +47,11 @@ img {
 }
 
 .playerLogo {
-    position: relative;
-    border: 21px solid #fdfefe;
     border-radius: 50%;
-    background: #fdfefe;
-    margin: 0px 0px 0px -34px;
-    width: 105px;
-    height: 100px;
+    height: 85px;
+    width: 70px;
+    z-index: 1;
+    margin: 28px 0 0 7px;
 }
 
 .title {

@@ -1,9 +1,11 @@
+import { CurrentState, CurrentStateByConference } from './../../@models/models';
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FullInformation } from 'src/app/@models/game';
 import { NbaService } from 'src/app/nba.service';
 import { TeamsResponse } from 'src/app/@models/models';
 import { forkJoin, map } from 'rxjs';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-game',
@@ -13,7 +15,10 @@ import { forkJoin, map } from 'rxjs';
 export class GameComponent implements OnInit {
   gameList!: FullInformation[];
   teamLogo!: TeamsResponse[];
+  displayedColumns: string[] = ['rank', 'city', 'win', 'loose', 'percent', 'conf', 'division', 'home', 'road', 'streak'];
+  currentState!: CurrentStateByConference;
   loading: boolean = true;
+  isEasternConference: boolean = true;
   responsiveOptions;
 
   constructor(private nbaService: NbaService, private datePipe: DatePipe) {
@@ -77,5 +82,29 @@ export class GameComponent implements OnInit {
         })
       )
       .subscribe((res) => [(this.gameList = res)]);
+
+    }
+    
+    ngAfterViewInit(): void {
+    this.nbaService.getCurrentState('2022')
+    .pipe(
+      map((data) => {
+        let eastTeams = data.filter(east => east.Conference === 'Eastern').sort((a, b) => b.Percentage - a.Percentage);
+        let westTeams = data.filter(west => west.Conference === 'Western').sort((a, b) => b.Percentage - a.Percentage);
+
+        const currentStateByConference: CurrentStateByConference = {
+          CurrentState: data,
+          easternTeams: eastTeams,
+          westernTeams: westTeams
+        }
+
+        return currentStateByConference;
+      })
+    )
+    .subscribe(data => {
+      this.currentState = data;
+      console.log(this.currentState.easternTeams);
+    })
+
   }
 }
