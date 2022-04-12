@@ -11,28 +11,34 @@ mat-card {
     box-shadow: 0 8px 8px 8px rgba(0,0,0,.2), 0 8px 8px 0 rgba(0,0,0,.14), 0 8px 8px 0 rgba(0,0,0,.12) !important;
 }
 
-mat-card:hover {
-    box-shadow: 0 8px 8px 8px rgba(0,0,0,.2), 0 8px 8px 0 rgba(0,0,0,.14), 0 8px 8px 0 rgba(0,0,0,.12) !important;
-    transform: translate3d(0,0,0);
-    transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+.headerContainer {
+    display: flex;
+    margin: 10px 0 25px 10px;
 }
 
-mat-card .headerContainer {
-    display: flex;
+mat-card .playerLogoContainer {
+    z-index: 1;
 }
 
 mat-card .playerLogoContainer .playerLogo {
     border-radius: 50%;
-    overflow: hidden;
-    background-color: #edeef0;
-    height: 90px;
-    width: 80px;
+    height: 85px;
+    width: 70px;
+    margin: -3px 0 0 7px;
 }
 
 mat-card-content {
     display: flex;
     padding: 1.3em 2em 1.3em 1.3em;
 }
+
+.playerImageCircle {
+    border-radius: 50%;
+    width: 85px;
+    height: 85px;
+    position: absolute;
+    background: #fdfefe;
+  }
 
 .main {
     width: 100%;
@@ -42,6 +48,7 @@ mat-card-content {
     width: 100%;
     margin-left: 0;
     border-radius: 0;
+    background-color: #fdfefe;
 }
 
 .headerContainer {
@@ -68,17 +75,6 @@ h1 {
     font-size: xx-large;
 }
 
-.playerContainer {
-    border-radius: 10%/50%;
-    -moz-border-radius: 10%/50%;
-    -webkit-border-radius: 7%/50%;
-}
-
-.playerLogoContainer {
-    writing-mode: vertical-rl;
-
-}
-
 a {
     text-decoration: none;
 }
@@ -103,4 +99,13 @@ a {
 .playerNumber {
     font-size: xxx-large;
     font-weight: bold;
+}
+
+@media (min-height: 801px) and  (max-height:1024px) {
+    body {
+        height: auto;
+    }
+    .mat-drawer-container {
+        height: auto;
+    }
 }

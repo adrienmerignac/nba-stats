@@ -227,3 +227,9 @@ export interface GameInformations {
     TeamGames: TeamGame[];
     PlayerGames: PlayerGame[];
 }
+
+export interface FullInformation  {
+    GameInformations: GameInformations
+    otherHomeGameInfos: string | undefined;
+    otherAwayGameInfos: string | undefined;
+}

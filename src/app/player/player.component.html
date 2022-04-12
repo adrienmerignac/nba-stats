@@ -1,37 +1,35 @@
 <ng-container *ngIf="filterPlayers && season">
-    <mat-card class="searchcontainer">
-      <mat-card-title>
-      </mat-card-title>
+  <mat-form-field class="searchButton" appearance="standard">
+    <input matInput autocomplete="off" placeholder="Search Players" (keyup)="searchPlayers($event)" [(ngModel)]="searchPlayer">
+  </mat-form-field>
+  <div class="playercard">
+    <mat-card *ngFor="let player of pageSlice">
       <mat-card-content>
-        <div class="searchplayer">
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Search Players" (keyup)="searchPlayers()" [(ngModel)]="searchPlayer">
-          </mat-form-field>
-        </div>
+        <a class="playerscontent" [routerLink]="['/players', season.Season, player.PlayerID]">
+          <div class="matlistitems">
+            <div class="playerImageCircle"></div>
+            <img class="playerimage" src="{{ player.PhotoUrl }}" alt="{{ player.FirstName }} {{ player.LastName }}"
+              title="{{ player.FirstName }} {{ player.LastName }}">
+            <div class="matline">
+              <div>
+                {{ player.LastName }}
+              </div>
+              <div>
+                {{ player.FirstName }}
+              </div>
+              <div>
+                {{ player.Team }}
+              </div>
+              <div>
+                N°{{ player.Jersey }}
+              </div>
+            </div>
+          </div>
+        </a>
       </mat-card-content>
     </mat-card>
-    <div class="playercard">
-      <mat-card>
-        <mat-card-title>
-          <h1>NBA PLAYERS</h1>
-        </mat-card-title>
-        <mat-card-content>
-          <mat-list>
-            <mat-list-item *ngFor="let player of filterPlayers">
-              <a class="playerscontent" [routerLink]="['/players', season.Season, player.PlayerID]">
-                <div class="matlistitems">
-                  <img class="playerimage" src="{{ player.PhotoUrl }}"
-                    alt="{{ player.FirstName }} {{ player.LastName }}" title="{{ player.FirstName }} {{ player.LastName }}">
-                  <p class="matline">
-                    <span>
-                      {{ player.LastName }} {{ player.FirstName }}
-                    </span>
-                  </p>
-                </div>
-              </a>
-            </mat-list-item>
-          </mat-list>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </ng-container>
+    <mat-paginator [length]="pageLength" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+      (page)="OnPageChange($event)">
+    </mat-paginator>
+  </div>
+</ng-container>
