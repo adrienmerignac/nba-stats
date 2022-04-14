@@ -5,7 +5,6 @@ import { FullInformation } from 'src/app/@models/game';
 import { NbaService } from 'src/app/nba.service';
 import { TeamsResponse } from 'src/app/@models/models';
 import { forkJoin, map } from 'rxjs';
-import { data } from 'jquery';
 
 @Component({
   selector: 'app-game',
@@ -86,7 +85,8 @@ export class GameComponent implements OnInit {
     }
     
     ngAfterViewInit(): void {
-    this.nbaService.getCurrentState('2022')
+    const currentYear = new Date().getFullYear().toString();
+    this.nbaService.getCurrentState(currentYear)
     .pipe(
       map((data) => {
         let eastTeams = data.filter(east => east.Conference === 'Eastern').sort((a, b) => b.Percentage - a.Percentage);
@@ -103,7 +103,6 @@ export class GameComponent implements OnInit {
     )
     .subscribe(data => {
       this.currentState = data;
-      console.log(this.currentState.easternTeams);
     })
 
   }

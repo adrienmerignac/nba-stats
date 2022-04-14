@@ -1,199 +1,199 @@
 <div class="superContainer">
-    <ng-container *ngIf="gameList?.length">
-        <p-carousel [value]="gameList" styleClass="custom-carousel" [numVisible]="3" [numScroll]="2" [circular]="true"
-        [autoplayInterval]="7500" [responsiveOptions]="responsiveOptions">
-        <ng-template pTemplate="header">
-            <h5>Games Of The Night</h5>
-        </ng-template>
-        <ng-template ngFor let-game [ngForOf]="gameList" pTemplate="item">
-            <div class="container">
-                <div class="row">
-                    <div class="rowContainer">
-                        <div class="col-md-auto awayTeamContainer">
-                            <img class="logo" src="{{ game.otherAwayGameInfos }}" />
-                            <p class="teamName">{{ game.GameInformations.Game.AwayTeam}}</p>
-                            <p class="score">{{ game.GameInformations.Game.AwayTeamScore}}</p>
-                        </div>
-                        <div class="winnerTeam"
-                        *ngIf="game.GameInformations.Game.AwayTeamScore > game.GameInformations.Game.HomeTeamScore">
-                        <mat-icon class="winnerArrow">arrow_left</mat-icon>
-                        <p>Finished</p>
-                    </div>
-                    <div class="winnerTeam"
-                    *ngIf="game.GameInformations.Game.AwayTeamScore < game.GameInformations.Game.HomeTeamScore">
-                    <p>Finished</p>
-                    <mat-icon class="winnerArrow">arrow_right</mat-icon>
-                </div>
-                <div class="col-md-auto homeTeamContainer">
-                    <img class="logo" src="{{ game.otherHomeGameInfos }}" />
-                    <p class="teamName">{{ game.GameInformations.Game.HomeTeam}}</p>
-                    <p class="score">{{ game.GameInformations.Game.HomeTeamScore}}</p>
-                </div>
+  <ng-container *ngIf="gameList?.length">
+    <p-carousel [value]="gameList" styleClass="custom-carousel" [numVisible]="3" [numScroll]="2" [circular]="true"
+      [autoplayInterval]="7500" [responsiveOptions]="responsiveOptions">
+      <ng-template pTemplate="header">
+        <h5>Games Of The Night</h5>
+      </ng-template>
+      <ng-template ngFor let-game [ngForOf]="gameList" pTemplate="item">
+        <div class="container">
+          <div class="row">
+            <div class="rowContainer">
+              <div class="col-md-auto awayTeamContainer">
+                <img class="logo" src="{{ game.otherAwayGameInfos }}" />
+                <p class="teamName">{{ game.GameInformations.Game.AwayTeam}}</p>
+                <p class="score">{{ game.GameInformations.Game.AwayTeamScore}}</p>
+              </div>
+              <div class="winnerTeam"
+                *ngIf="game.GameInformations.Game.AwayTeamScore > game.GameInformations.Game.HomeTeamScore">
+                <mat-icon class="winnerArrow">arrow_left</mat-icon>
+                <p>Finished</p>
+              </div>
+              <div class="winnerTeam"
+                *ngIf="game.GameInformations.Game.AwayTeamScore < game.GameInformations.Game.HomeTeamScore">
+                <p>Finished</p>
+                <mat-icon class="winnerArrow">arrow_right</mat-icon>
+              </div>
+              <div class="col-md-auto homeTeamContainer">
+                <img class="logo" src="{{ game.otherHomeGameInfos }}" />
+                <p class="teamName">{{ game.GameInformations.Game.HomeTeam}}</p>
+                <p class="score">{{ game.GameInformations.Game.HomeTeamScore}}</p>
+              </div>
             </div>
             <div>
-                <div class="example-button-row">
-                    <button mat-stroked-button color="accent">Away</button>
-                    <button mat-stroked-button color="accent">Home</button>
-                </div>
+              <div class="example-button-row">
+                <button mat-stroked-button color="accent">Away</button>
+                <button mat-stroked-button color="accent">Home</button>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</ng-template>
-</p-carousel>
-</ng-container>
+      </ng-template>
+    </p-carousel>
+  </ng-container>
 </div>
 
 <ng-container *ngIf="!gameList?.length">
-    <div class="noGameContainer">
-        <h5>Results of the night</h5>
-        <div>
-            <p class="noGameMessage">
-                There is no game for this date.
-            </p>
-            <p class="noGameMessageTwo">
-                Check official website for next games.
-            </p>
-            <div class="noGameButton">
-                <a mat-raised-button href="https://www.nba.com/games" target="_blank">Official website.</a>
-            </div>
-        </div>
+  <div class="noGameContainer">
+    <h5>Results of the night</h5>
+    <div>
+      <p class="noGameMessage">
+        There is no game for this date.
+      </p>
+      <p class="noGameMessageTwo">
+        Check official website for next games.
+      </p>
+      <div class="noGameButton">
+        <a mat-raised-button href="https://www.nba.com/games" target="_blank">Official website.</a>
+      </div>
     </div>
+  </div>
 </ng-container>
 
 <ng-container *ngIf="currentState">
-    <h5>Standings</h5>
-    <div class="toggleContainer">
-        <div class="toggleSecondaryContainer">
-            <span class="westerConference">Western Conference</span>
-            <mat-slide-toggle color="primary" [(ngModel)]="isEasternConference">Eastern Conference</mat-slide-toggle>
-        </div>
+  <h5>Standings</h5>
+  <div class="toggleContainer">
+    <div class="toggleSecondaryContainer">
+      <span class="westerConference">Western Conference</span>
+      <mat-slide-toggle color="primary" [(ngModel)]="isEasternConference">Eastern Conference</mat-slide-toggle>
     </div>
-    <table *ngIf="isEasternConference" mat-table [dataSource]="currentState.easternTeams" class="mat-elevation-z8">
-        <!-- Rank Column -->
-        <ng-container matColumnDef="rank">
-            <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> RANK </th>
-            <td class="rankBold" mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
-        </ng-container>
-        
-        <!-- Team Column -->
-        <ng-container matColumnDef="city">
-            <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> TEAM </th>
-            <td mat-cell *matCellDef="let element"> {{element.City}} {{element.Name}} </td>
-        </ng-container>
-        
-        <!-- Win Column -->
-        <ng-container matColumnDef="win">
-            <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> WINS </th>
-            <td mat-cell *matCellDef="let element"> {{element.Wins}} </td>
-        </ng-container>
-        
-        <!-- Loose Column -->
-        <ng-container matColumnDef="loose">
-            <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> LOSSES </th>
-            <td mat-cell *matCellDef="let element"> {{element.Losses}} </td>
-        </ng-container>
-        
-        <!-- Percentage Column -->
-        <ng-container matColumnDef="percent">
-            <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> WIN % </th>
-            <td mat-cell *matCellDef="let element"> {{element.Percentage}} </td>
-        </ng-container>
-        
-        <!-- conference Column -->
-        <ng-container matColumnDef="conf">
-            <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> CONF </th>
-            <td mat-cell *matCellDef="let element"> {{element.ConferenceWins}} - {{element.ConferenceLosses}} </td>
-        </ng-container>
-        
-        <!-- Division Column -->
-        <ng-container matColumnDef="division">
-            <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> CONF </th>
-            <td mat-cell *matCellDef="let element"> {{element.DivisionWins}} - {{element.DivisionLosses}} </td>
-        </ng-container>
-        
-        <!-- Home Column -->
-        <ng-container matColumnDef="home">
-            <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> HOME </th>
-            <td mat-cell *matCellDef="let element"> {{element.HomeWins}} - {{element.HomeLosses}} </td>
-        </ng-container>
-        
-        <!-- Road Column -->
-        <ng-container matColumnDef="road">
-            <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> ROAD </th>
-            <td mat-cell *matCellDef="let element"> {{element.AwayWins}} - {{element.AwayLosses}} </td>
-        </ng-container>
-        
-        <!-- Currenttreak Column -->
-        <ng-container matColumnDef="streak">
-            <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> STREAK </th>
-            <td mat-cell *matCellDef="let element"> {{element.StreakDescription}} </td>
-        </ng-container>
-        
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    <table *ngIf="!isEasternConference" mat-table [dataSource]="currentState.westernTeams" class="mat-elevation-z8">
-        <!-- Rank Column -->
-        <ng-container matColumnDef="rank">
-            <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> RANK </th>
-            <td class="rankBold" mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
-        </ng-container>
-        
-        <!-- Team Column -->
-        <ng-container matColumnDef="city">
-            <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> TEAM </th>
-            <td mat-cell *matCellDef="let element"> {{element.City}} {{element.Name}} </td>
-        </ng-container>
-        
-        <!-- Win Column -->
-        <ng-container matColumnDef="win">
-            <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> WINS </th>
-            <td mat-cell *matCellDef="let element"> {{element.Wins}} </td>
-        </ng-container>
-        
-        <!-- Loose Column -->
-        <ng-container matColumnDef="loose">
-            <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> LOSSES </th>
-            <td mat-cell *matCellDef="let element"> {{element.Losses}} </td>
-        </ng-container>
-        
-        <!-- Percentage Column -->
-        <ng-container matColumnDef="percent">
-            <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> WIN % </th>
-            <td mat-cell *matCellDef="let element"> {{element.Percentage}} </td>
-        </ng-container>
-        
-        <!-- conference Column -->
-        <ng-container matColumnDef="conf">
-            <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> CONF </th>
-            <td mat-cell *matCellDef="let element"> {{element.ConferenceWins}} - {{element.ConferenceLosses}} </td>
-        </ng-container>
-        
-        <!-- Division Column -->
-        <ng-container matColumnDef="division">
-            <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> CONF </th>
-            <td mat-cell *matCellDef="let element"> {{element.DivisionWins}} - {{element.DivisionLosses}} </td>
-        </ng-container>
-        
-        <!-- Home Column -->
-        <ng-container matColumnDef="home">
-            <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> HOME </th>
-            <td mat-cell *matCellDef="let element"> {{element.HomeWins}} - {{element.HomeLosses}} </td>
-        </ng-container>
-        
-        <!-- Road Column -->
-        <ng-container matColumnDef="road">
-            <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> ROAD </th>
-            <td mat-cell *matCellDef="let element"> {{element.AwayWins}} - {{element.AwayLosses}} </td>
-        </ng-container>
-        
-        <!-- Currenttreak Column -->
-        <ng-container matColumnDef="streak">
-            <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> STREAK </th>
-            <td mat-cell *matCellDef="let element"> {{element.StreakDescription}} </td>
-        </ng-container>
-        
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+  </div>
+  <table *ngIf="isEasternConference" mat-table [dataSource]="currentState.easternTeams" class="mat-elevation-z8">
+    <!-- Rank Column -->
+    <ng-container matColumnDef="rank">
+      <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> RANK </th>
+      <td class="rankBold" mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+    </ng-container>
+
+    <!-- Team Column -->
+    <ng-container matColumnDef="city">
+      <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> TEAM </th>
+      <td mat-cell *matCellDef="let element"> {{element.City}} {{element.Name}} </td>
+    </ng-container>
+
+    <!-- Win Column -->
+    <ng-container matColumnDef="win">
+      <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> WINS </th>
+      <td mat-cell *matCellDef="let element"> {{element.Wins}} </td>
+    </ng-container>
+
+    <!-- Loose Column -->
+    <ng-container matColumnDef="loose">
+      <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> LOSSES </th>
+      <td mat-cell *matCellDef="let element"> {{element.Losses}} </td>
+    </ng-container>
+
+    <!-- Percentage Column -->
+    <ng-container matColumnDef="percent">
+      <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> WIN % </th>
+      <td mat-cell *matCellDef="let element"> {{element.Percentage}} </td>
+    </ng-container>
+
+    <!-- conference Column -->
+    <ng-container matColumnDef="conf">
+      <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> CONF </th>
+      <td mat-cell *matCellDef="let element"> {{element.ConferenceWins}} - {{element.ConferenceLosses}} </td>
+    </ng-container>
+
+    <!-- Division Column -->
+    <ng-container matColumnDef="division">
+      <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> CONF </th>
+      <td mat-cell *matCellDef="let element"> {{element.DivisionWins}} - {{element.DivisionLosses}} </td>
+    </ng-container>
+
+    <!-- Home Column -->
+    <ng-container matColumnDef="home">
+      <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> HOME </th>
+      <td mat-cell *matCellDef="let element"> {{element.HomeWins}} - {{element.HomeLosses}} </td>
+    </ng-container>
+
+    <!-- Road Column -->
+    <ng-container matColumnDef="road">
+      <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> ROAD </th>
+      <td mat-cell *matCellDef="let element"> {{element.AwayWins}} - {{element.AwayLosses}} </td>
+    </ng-container>
+
+    <!-- Currenttreak Column -->
+    <ng-container matColumnDef="streak">
+      <th class="easternConferenceHeader" mat-header-cell *matHeaderCellDef> STREAK </th>
+      <td mat-cell *matCellDef="let element"> {{element.StreakDescription}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <table *ngIf="!isEasternConference" mat-table [dataSource]="currentState.westernTeams" class="mat-elevation-z8">
+    <!-- Rank Column -->
+    <ng-container matColumnDef="rank">
+      <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> RANK </th>
+      <td class="rankBold" mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+    </ng-container>
+
+    <!-- Team Column -->
+    <ng-container matColumnDef="city">
+      <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> TEAM </th>
+      <td mat-cell *matCellDef="let element"> {{element.City}} {{element.Name}} </td>
+    </ng-container>
+
+    <!-- Win Column -->
+    <ng-container matColumnDef="win">
+      <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> WINS </th>
+      <td mat-cell *matCellDef="let element"> {{element.Wins}} </td>
+    </ng-container>
+
+    <!-- Loose Column -->
+    <ng-container matColumnDef="loose">
+      <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> LOSSES </th>
+      <td mat-cell *matCellDef="let element"> {{element.Losses}} </td>
+    </ng-container>
+
+    <!-- Percentage Column -->
+    <ng-container matColumnDef="percent">
+      <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> WIN % </th>
+      <td mat-cell *matCellDef="let element"> {{element.Percentage}} </td>
+    </ng-container>
+
+    <!-- conference Column -->
+    <ng-container matColumnDef="conf">
+      <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> CONF </th>
+      <td mat-cell *matCellDef="let element"> {{element.ConferenceWins}} - {{element.ConferenceLosses}} </td>
+    </ng-container>
+
+    <!-- Division Column -->
+    <ng-container matColumnDef="division">
+      <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> CONF </th>
+      <td mat-cell *matCellDef="let element"> {{element.DivisionWins}} - {{element.DivisionLosses}} </td>
+    </ng-container>
+
+    <!-- Home Column -->
+    <ng-container matColumnDef="home">
+      <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> HOME </th>
+      <td mat-cell *matCellDef="let element"> {{element.HomeWins}} - {{element.HomeLosses}} </td>
+    </ng-container>
+
+    <!-- Road Column -->
+    <ng-container matColumnDef="road">
+      <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> ROAD </th>
+      <td mat-cell *matCellDef="let element"> {{element.AwayWins}} - {{element.AwayLosses}} </td>
+    </ng-container>
+
+    <!-- Currenttreak Column -->
+    <ng-container matColumnDef="streak">
+      <th class="westernConferenceHeader" mat-header-cell *matHeaderCellDef> STREAK </th>
+      <td mat-cell *matCellDef="let element"> {{element.StreakDescription}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </ng-container>
