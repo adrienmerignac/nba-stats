@@ -1,66 +1,65 @@
 <div class="superContainer">
-    <ng-container *ngIf="gameList?.length">
-        <p-carousel [value]="gameList" styleClass="custom-carousel" [numVisible]="3" [numScroll]="2" [circular]="true"
-        [autoplayInterval]="7500" [responsiveOptions]="responsiveOptions">
-        <ng-template pTemplate="header">
-            <h5>Games Of The Night</h5>
-        </ng-template>
-        <ng-template ngFor let-game [ngForOf]="gameList" pTemplate="item">
-            <div class="container">
-                <div class="row">
-                    <div class="rowContainer">
-                        <div class="col-md-auto awayTeamContainer">
-                            <img class="logo" src="{{ game.otherAwayGameInfos }}" />
-                            <p class="teamName">{{ game.GameInformations.Game.AwayTeam}}</p>
-                            <p class="score">{{ game.GameInformations.Game.AwayTeamScore}}</p>
-                        </div>
-                        <div class="winnerTeam"
-                        *ngIf="game.GameInformations.Game.AwayTeamScore > game.GameInformations.Game.HomeTeamScore">
-                        <mat-icon class="winnerArrow">arrow_left</mat-icon>
-                        <p>Finished</p>
-                    </div>
-                    <div class="winnerTeam"
-                    *ngIf="game.GameInformations.Game.AwayTeamScore < game.GameInformations.Game.HomeTeamScore">
-                    <p>Finished</p>
-                    <mat-icon class="winnerArrow">arrow_right</mat-icon>
-                </div>
-                <div class="col-md-auto homeTeamContainer">
-                    <img class="logo" src="{{ game.otherHomeGameInfos }}" />
-                    <p class="teamName">{{ game.GameInformations.Game.HomeTeam}}</p>
-                    <p class="score">{{ game.GameInformations.Game.HomeTeamScore}}</p>
-                </div>
+  <ng-container *ngIf="gameList?.length">
+    <p-carousel [value]="gameList" styleClass="custom-carousel" [numVisible]="3" [numScroll]="2" [circular]="true"
+      [autoplayInterval]="7500" [responsiveOptions]="responsiveOptions">
+      <ng-template pTemplate="header">
+        <h5>Games Of The Night</h5>
+      </ng-template>
+      <ng-template ngFor let-game [ngForOf]="gameList" pTemplate="item">
+        <div class="container">
+          <div class="row">
+            <div class="rowContainer">
+              <div class="col-md-auto awayTeamContainer">
+                <img class="logo" src="{{ game.otherAwayGameInfos }}" />
+                <p class="teamName">{{ game.GameInformations.Game.AwayTeam}}</p>
+                <p class="score">{{ game.GameInformations.Game.AwayTeamScore}}</p>
+              </div>
+              <div class="winnerTeam"
+                *ngIf="game.GameInformations.Game.AwayTeamScore > game.GameInformations.Game.HomeTeamScore">
+                <mat-icon class="winnerArrow">arrow_left</mat-icon>
+                <p>Finished</p>
+              </div>
+              <div class="winnerTeam"
+                *ngIf="game.GameInformations.Game.AwayTeamScore < game.GameInformations.Game.HomeTeamScore">
+                <p>Finished</p>
+                <mat-icon class="winnerArrow">arrow_right</mat-icon>
+              </div>
+              <div class="col-md-auto homeTeamContainer">
+                <img class="logo" src="{{ game.otherHomeGameInfos }}" />
+                <p class="teamName">{{ game.GameInformations.Game.HomeTeam}}</p>
+                <p class="score">{{ game.GameInformations.Game.HomeTeamScore}}</p>
+              </div>
             </div>
         </div>
-    </div>
-</ng-template>
-</p-carousel>
-</ng-container>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </ng-container>
 </div>
 
 <ng-container *ngIf="!gameList?.length">
-    <div class="noGameContainer">
-        <h5>Results of the night</h5>
-        <div>
-            <p class="noGameMessage">
-                There is no game for this date.
-            </p>
-            <p class="noGameMessageTwo">
-                Check official website for next games.
-            </p>
-            <div class="noGameButton">
-                <a mat-raised-button href="https://www.nba.com/games" target="_blank">Official website.</a>
-            </div>
-        </div>
+  <div class="noGameContainer">
+    <h5>Results of the night</h5>
+    <div>
+      <p class="noGameMessage">
+        There is no game for this date.
+      </p>
+      <p class="noGameMessageTwo">
+        Check official website for next games.
+      </p>
+      <div class="noGameButton">
+        <a mat-raised-button href="https://www.nba.com/games" target="_blank">Official website.</a>
+      </div>
     </div>
+  </div>
 </ng-container>
 
 <ng-container *ngIf="currentState">
-    <h5>Standings</h5>
-    <div class="toggleContainer">
-        <div class="toggleSecondaryContainer">
-            <span class="westerConference">Western Conference</span>
-            <mat-slide-toggle color="primary" [(ngModel)]="isEasternConference">Eastern Conference</mat-slide-toggle>
-        </div>
+  <h5>Standings</h5>
+  <div class="toggleContainer">
+    <div class="toggleSecondaryContainer">
+      <span class="westerConference">Western Conference</span>
+      <mat-slide-toggle color="primary" [(ngModel)]="isEasternConference">Eastern Conference</mat-slide-toggle>
     </div>
     <table *ngIf="isEasternConference" mat-table [dataSource]="currentState.easternTeams" class="mat-elevation-z8">
         <!-- Rank Column -->
@@ -190,4 +189,5 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+  </div>
 </ng-container>
