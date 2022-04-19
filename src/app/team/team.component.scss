@@ -1,3 +1,132 @@
+/* For Mobile Portrait View */
+@media screen and (min-device-width: 350px) and (max-device-width: 365px) and (orientation: portrait) {
+    .logo {
+        width: 25px !important;
+        height: 25px !important;
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+        margin-top: 1rem !important;
+    }
+    .westernCard {
+        margin-bottom: 2rem !important;
+    }
+    .easternCard {
+        margin-top: 1.5rem;
+    }
+}
+
+@media screen and (min-device-width: 370px) and (max-device-width: 380px) and (orientation: portrait) {
+    .logo {
+        width: 30px !important;
+        height: 30px !important;
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+        margin-top: 1rem !important;
+    }
+    .westernCard {
+        margin-bottom: 6rem !important;
+    }
+    .easternCard {
+        margin-top: 1.5rem;
+    }
+}
+
+@media screen and (min-device-width: 380px) and (max-device-width: 395px) and (orientation: portrait) {
+    .logo {
+        width: 35px !important;
+        height: 36px !important;
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+        margin-top: 1rem !important;
+    }
+    .westernCard {
+        margin-bottom: 3rem !important;
+    }
+    .easternCard {
+        margin-top: 1.5rem;
+    }
+}
+
+@media screen and (min-device-width: 400px) and (max-device-width: 540px) and (orientation: portrait) {
+    .logo {
+        width: 40px !important;
+        height: 45px !important;
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+        margin-top: 1rem !important;
+    }
+    .westernCard {
+        margin-bottom: 2rem !important;
+    }
+    .easternCard {
+        margin-top: 1.5rem;
+    }
+}
+
+@media screen and (min-device-width: 550px) and (max-device-width: 900px) and (orientation: portrait) {
+    .logo {
+        width: 100px !important;
+        height: 80px !important;
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+        margin-top: 1rem !important;
+    }
+    .westernCard {
+        margin-bottom: 4.1rem !important;
+    }
+    .easternCard {
+        margin-top: 1.5rem;
+    }
+}
+
+@media screen and (min-device-width: 901px) and (max-device-width: 920px) and (orientation: portrait) {
+    .logo {
+        width: 110px !important;
+        height: 90px !important;
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+        margin-top: 1rem !important;
+    }
+    .westernCard {
+        margin-bottom: 4.1rem !important;
+    }
+    .easternCard {
+        margin-top: 1.5rem;
+    }
+}
+
+@media screen and (max-device-width: 920px) and (orientation: landscape) {
+    .logo {
+        width: 40px !important;
+        height: 40px !important;
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+        margin-top: 1rem !important;
+    }
+    .westernCard {
+        margin-bottom: 4.1rem !important;
+    }
+    .easternCard {
+        margin-top: 1.5rem;
+    }
+}
+
+@media screen and (min-device-width: 1020px) and (max-device-width: 1368px) and (orientation: landscape) {
+    .logo {
+        width: 110px !important;
+        height: 80px !important;
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+        margin-top: 1rem !important;
+    }
+    .westernCard {
+        margin-bottom: 4.1rem !important;
+    }
+    .easternCard {
+        margin-top: 1.5rem;
+    }
+}
+
 .main {
     margin-top: 1em;
 }

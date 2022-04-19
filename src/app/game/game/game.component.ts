@@ -29,12 +29,27 @@ export class GameComponent implements OnInit {
         numScroll: 3,
       },
       {
+        breakpoint: '920px',
+        numVisible: 2,
+        numScroll: 2,
+      },
+      {
         breakpoint: '768px',
         numVisible: 2,
         numScroll: 2,
       },
       {
+        breakpoint: '720px',
+        numVisible: 1,
+        numScroll: 1,
+      },
+      {
         breakpoint: '560px',
+        numVisible: 1,
+        numScroll: 1,
+      },
+      {
+        breakpoint: '480px',
         numVisible: 1,
         numScroll: 1,
       },
@@ -42,7 +57,7 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let yesterday = new Date(new Date().setDate(new Date().getDate() - 5));
+    let yesterday = new Date(new Date().setDate(new Date().getDate() - 1));
     let currentDateTime = this.datePipe.transform(yesterday, 'yyyy-MMM-dd');
     forkJoin({
       requestOne: this.nbaService.getMatchsOfTheDay(currentDateTime),
@@ -91,19 +106,16 @@ export class GameComponent implements OnInit {
       map((data) => {
         let eastTeams = data.filter(east => east.Conference === 'Eastern').sort((a, b) => b.Percentage - a.Percentage);
         let westTeams = data.filter(west => west.Conference === 'Western').sort((a, b) => b.Percentage - a.Percentage);
-
         const currentStateByConference: CurrentStateByConference = {
           CurrentState: data,
           easternTeams: eastTeams,
           westernTeams: westTeams
         }
-
         return currentStateByConference;
       })
     )
     .subscribe(data => {
       this.currentState = data;
-      console.log(this.currentState.easternTeams);
     })
 
   }
