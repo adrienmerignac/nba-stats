@@ -1,34 +1,18 @@
-image: node:latest
-
-stages:
-  - build
-  - test
-  - deploy
-
-cache:
-    paths:
-    - ./node_modules
-
-build:
-  script:
-    - npm install
-    - ./node_modules/@angular/cli/bin/ng build
-  artifacts:
-    paths:
-      - dist/
-
-test:
-  script:
-    - echo "Alex"
-    #- ./node_modules/@angular/cli/bin/ng lint
-    #- ./node_modules/@angular/cli/bin/ng test --single-run=true --browsers PhantomJS --watch=false
+image: node:16.14.2
 
 pages:
+  cache:
+    paths:
+    - node_modules/
+
   stage: deploy
   script:
-  - mv doc public
+  - npm install -g @angular/cli@13.0.1
+  - npm install
+  - ng build --base-href=""
   artifacts:
     paths:
     - public
   only:
   - master
+  - pages
