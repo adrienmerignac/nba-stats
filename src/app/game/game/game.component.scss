@@ -1,6 +1,118 @@
-// .superContainer {
-//     height: 1024px;
-// }
+@media screen and (max-device-width: 540px) and (orientation: portrait) {
+    h5 {
+        font-size: larger !important;
+        margin-top: 1em !important;
+        margin-bottom: 1em !important;
+    }
+    .logo {
+        width: 38px !important;
+        height: 40px !important;
+    }
+    .winnerTeam {
+        padding: 5.35em 0 0 1.5em !important;
+        font-size: x-small;
+    }
+    .teamName {
+        font-size: x-small;
+    }
+    .score {
+        font-size: x-small;
+    }
+    .westerConference {
+        font-size: x-small !important;
+    }
+    .mat-slide-toggle {
+        font-size: x-small !important;
+    }
+    .mat-table {
+        margin: 1em 0 0 0 !important;
+    }
+    .easternConferenceHeader {
+        font-size: 8px !important;
+    }
+    .westernConferenceHeader {
+        font-size: 8px;
+    }
+    .mat-cell {
+        font-size: 8px !important;
+    }
+    th.mat-header-cell:last-of-type, td.mat-cell:last-of-type {
+        padding: 0;
+    }
+    .easternConferenceTeam {
+        font-size: 5px;
+    }
+    .rankBold {
+        width: 10% !important;
+    }
+    .team {
+        width: 0 !important;
+    }
+    .wins {
+        width: 10% !important;
+    }
+    .losses {
+        width: 10% !important;
+    }
+    .percentage {
+        width: 13% !important;
+    }
+    .conferenceInfo {
+        width: 13% !important;
+    }
+    .divisionInfo {
+        width: 13% !important;
+    }
+    .homeInfo {
+        width: 13% !important;
+    }
+    .roadInfo {
+        width: 13% !important;
+    }
+    .streakInfo {
+        width: 0 !important;
+    }
+}
+
+@media screen and (min-device-width: 760px) and (max-device-width: 900px) and (orientation: portrait) {
+    .logo {
+        height: 70px !important;
+        width: 66px !important;
+    }
+    .mat-table {
+        margin: 1em 0 0 0 !important;
+    }
+}
+
+@media screen and (min-device-width: 901px) and (max-device-width: 920px) and (orientation: portrait) {
+    .logo {
+        height: 90px !important;
+        width: 90px !important;
+    }
+    .mat-table {
+        margin: 1em 0 6.5em 0 !important;
+    }
+}
+
+@media screen and (max-device-width: 900px) and (orientation: landscape) {
+    .logo {
+        width: 85px !important;
+        height: 80px !important;
+    }
+    .mat-table {
+        margin: 1em 0 0 0 !important;
+    }
+}
+
+@media screen and (max-device-width: 1368px) and (orientation: landscape) {
+    .logo {
+        width: 90px !important;
+        height: 90px !important;
+    }
+    .mat-table {
+        margin: 1em 0 0 0 !important;
+    }
+}
 
 .container {
     .row {
