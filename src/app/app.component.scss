@@ -19,30 +19,30 @@
   @media screen and (max-device-width: 540px)
   and (orientation: portrait) {
     body {
-        height: auto;
-        width: auto;
-        background-color: #FDFEFE;
+        height: auto !important;
+        width: auto !important;
+        background-color: #FDFEFE !important;
     }
     .mat-sidenav {
-        width: 7em;
-        margin: 3.47em 0 -0.4em 0;
-        max-height: fit-content;
+        width: 7em !important;
+        // margin: 3.47em 0 -0.4em 0;
+        // max-height: fit-content;
     }
     .mat-drawer-container {
-        position: static;
-        background-color: #212121;
+        // position: static;
+        background-color: #212121 !important;
     }
-    .title {
-        font-size: 1em !important;
-        color: #FDFEFE;
-        text-decoration: none;
-    }
-    
-    .accountContainer {
-        text-align: center;
-        margin-top: 1em;
-    }
-    
+    // .title {
+    //     font-size: 1em !important;
+    //     color: #FDFEFE;
+    //     text-decoration: none;
+    // }
+
+    // .accountContainer {
+    //     text-align: center;
+    //     margin-top: 1em;
+    // }
+
     .userIcon {
         font-size: 3em !important;
         margin-right: 25px !important;
@@ -53,16 +53,16 @@
         margin: 0 0 -10px 0 !important;
     }
     .button {
-        line-height: 0;
+        line-height: 0 !important;
     }
-    
+
     .firstLinkContainer {
-        margin-top: 2em;
-        text-align: center;
-        font-weight: bold;
-        font-size: large;
+        margin-top: 2em !important;
+        text-align: center !important;
+        font-weight: bold !important;
+        font-size: large !important;
     }
-    
+
     .linkContainer {
         display: block !important;
         padding-left: 0 !important;
@@ -70,7 +70,7 @@
 
     .linkName {
         padding-left: 0 !important;
-        font-size: small;
+        font-size: small !important;
     }
 
     .mat-toolbar-single-row {
