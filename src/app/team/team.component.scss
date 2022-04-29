@@ -1,5 +1,5 @@
 /* For Mobile Portrait View */
-@media screen and (min-device-width: 350px) and (max-device-width: 365px) and (orientation: portrait) {
+@media screen and (min-device-width: 320px) and (max-device-width: 365px) and (orientation: portrait) {
     .logo {
         width: 25px !important;
         height: 25px !important;
@@ -24,7 +24,7 @@
         margin-top: 1rem !important;
     }
     .westernCard {
-        margin-bottom: 6rem !important;
+        margin-bottom: 7rem !important;
     }
     .easternCard {
         margin-top: 1.5rem;
