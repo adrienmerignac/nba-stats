@@ -21,9 +21,16 @@
     body {
         height: auto;
         width: auto;
+        background-color: #FDFEFE;
     }
     .mat-sidenav {
         width: 7em;
+        margin: 3.47em 0 -0.4em 0;
+        max-height: fit-content;
+    }
+    .mat-drawer-container {
+        position: static;
+        background-color: #212121;
     }
     .title {
         font-size: 1em !important;
